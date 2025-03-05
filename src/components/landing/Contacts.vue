@@ -15,12 +15,12 @@ const content = ref("")
         <div class="flex flex-col px -5  md:px-64 items-center">
             <h1 class="text-5xl text-white font-bold md:self-center">Contact <span
                     class="text-5xl text-teal-500">Me</span></h1>
-            <div class="bg-white flex rounded-lg shadow-lg p-6  w-full  mt-8">
+            <div class="w-full bg-gray-400 flex rounded-lg shadow-lg p-6   mt-8">
                 <div>
                     <div class="text-center mb-6">
-                        <h1 class="text-2xl font-bold text-gray-800">Contact Me</h1>
+                        <h1 class="text-2xl font-bold text-gray-200">Contact Me</h1>
                     </div>
-                    <div class="flex flex-col gap-4 md:flex-row md:justify-between ">
+                    <div class="flex flex-col gap-4  md:flex-row md:justify-between  ">
                         <div class="flex items-center gap-2 text-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="text-blue-500"
                                 viewBox="0 0 24 24">

@@ -17,10 +17,10 @@ function downloadCv() {
           <span>I am a</span>
           <span class="frontend-developer text-teal-500">Fullstack Developer</span>
         </p>
-        <p class="text-white font-bold mt-4 text-sm">"Hi, I'm Muluken Demis, a passionate full-stack developer
-          specializing in Vue.js,nuxt3, Go, Node.js,expressjs and React. I craft dynamic, scalable, and user-centric
-          applications,
-          blending innovative front-end interfaces with robust back-end solutions. </p>
+        <p class="text-white font-bold mt-4 text-sm">Hi, I'm Muluken Demis, a passionate full-stack developer
+          specializing in Vue.js, Nuxt 3, and React for the frontend, and Express.js for the backend. I build dynamic,
+          scalable, and user-centric applications by combining innovative frontend interfaces with robust backend
+          solutions.</p>
 
         <div class="flex flex-row gap-x-5 mt-4 flex-wrap">
           <div class="flex flex-row gap-14 flex-wrap">

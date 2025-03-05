@@ -173,7 +173,7 @@ const breakpoints = ref({
       <carousel :wrapAround="true" :autoplay="0" :transition="700" :breakpoints="breakpoints" :settings="settings"
         class="w-auto mt-4 md:mt-7 h-full">
         <slide v-for="project in Projects" :key="project.id"
-          class="px-0 md:px-5 xl:px-5 2xl:px-5 dark:text-white h-auto py-2">
+          class="px-0 md:px-5 xl:px-5 2xl:px-5 dark:text-white h-auto py-2 ">
           <ProjectCard :project="project" />
         </slide>
 
