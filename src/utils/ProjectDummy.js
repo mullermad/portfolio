@@ -1,37 +1,33 @@
-import template from "../assets/template.webp"
-import event from "../assets/Screenshot from 2024-11-23 11-57-15.png"
-import intern from "../assets/intern.jpg"
-import exp from "../assets/et.jpg"
-import eco from "../assets/tour.jpg"
+import template from "../assets/template.webp";
+import equb from "../assets/equbsystem.png";
 
-export const Projects=[
-    {
-    id:1,
-    title:"Event Management",
-    photo:event,
-    description:"My event management website is a comprehensive platform designed to simplify the planning, organization, and execution of events. Whether it's a corporate conference, a wedding, or a community gathering, our site provides powerful tools for seamless event coordination. Key features include user-friendly event creation, customizable registration forms, real-time attendee tracking, and integrated payment processing. With a sleek and responsive design, the platform ensures a smooth experience for both organizers and participants across all devices.",
-   
-    link:"https://github.com/21g21g/event_management"
-},
-{
-    id:2,
-    title:"Internshop Portal",
-    photo:intern,
-    description: "The Internship Portal is a dynamic platform designed to bridge the gap between students and companies. This project facilitates seamless connections, enabling students to find valuable internship opportunities while helping companies discover fresh talent. With user-friendly features and a focus on accessibility, the Internship Portal enhances the internship search experience, fostering mutually beneficial relationships between students and businesses.",
-    link:"https://github.com/21g21g/internship_portal"
-},
-{
-    id: 3,
-    photo: exp,
-    title: "ExploreEthiopia",
-    description: "ExploreEthiopia is an engaging platform dedicated to showcasing the rich cultural heritage, breathtaking landscapes, and diverse attractions of Ethiopia. This project provides users with detailed travel guides, historical insights, and curated itineraries, making it easy for tourists and locals alike to discover and explore the beauty of Ethiopia.",
-    link:"https://github.com/21g21g/ethioExplore"
+import internMentorship from "../assets/internmentorship.png";
+import cinema from "../assets/cinema.png";
+
+export const Projects = [
+  {
+    id: 1,
+    title: "mentorship",
+    photo: internMentorship,
+    description:
+      "A mentorship system is a structured platform designed to facilitate the relationship between mentors and mentees. It connects individuals seeking guidance (mentees) with experienced professionals or advisors (mentors) to help mentees achieve their personal or professional goals. Here’s a detailed description of such a system.",
+
+    link: "https://mentorship-sooty.vercel.app/",
   },
   {
-    id: 4,
-    photo: eco,
-    title: "onlineShoping",
-    description: "In the fast-paced digital age, the convenience of online shopping has revolutionized the way we purchase goods, including clothing With the emergence of e-commerce platforms, consumers now have access to a vast array of fashion choices from the comfort of their own homes",
-    link:"https://github.com/21g21g/online-cloth-shoping"
+    id: 2,
+    title: "Digital Equb System",
+    photo: equb,
+    description:
+      "A Digital Equb System is an innovative platform that digitizes the traditional Ethiopian practice of Equb, a community-based savings and lending system. It brings the concept into the digital era, enabling users to participate in savings groups more efficiently, securely, and transparently through technology",
+    link: "https://github.com/mullermad",
   },
-]
+  {
+    id: 3,
+    photo: cinema,
+    title: "Cinema Ticket Booking App",
+    description:
+      "A Cinema App is a digital platform that provides users with a seamless way to browse movies, check cinema schedules, book tickets, and engage with cinematic content. It is mainly used for booking tickets, watching movie trailers, and exploring various movie-related features. Users can view details about upcoming and currently showing movies, read synopses, check ratings and reviews, and even filter movies based on genres, directors, or actors.",
+    link: "https://cinema-app-liart.vercel.app/",
+  },
+];

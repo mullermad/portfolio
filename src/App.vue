@@ -10,28 +10,28 @@ import Skills from "./components/landing/Skills.vue"
 <template>
   <div class="overflow-x-hidden overflow-y-hidden">
     <NavLayout id1="home" id2="about " id3="skills" id4="projects" id5="contacts">
-    <div>
-      <section id="home" class="min-h-screen bg-black text-white">
-       <Home/>
-    </section>
-     <section id="about" class="min-h-screen bg-black text-white">
-       <About/>
-    </section>
-     <section id="skills" class="min-h-screen bg-black text-white">
-      <Skills/>
-    </section>
-       <section id="projects" class="min-h-screen bg-black text-white">
-        <Projects/>
-    </section>
-      <section id="contacts" class="min-h-screen bg-black text-white">
-        <Contacts/>
-    </section>
-    </div>
+      <div>
+        <section id="home" class="min-h-screen bg-gray-800 text-white">
+          <Home />
+        </section>
+        <section id="about" class="min-h-screen bg-gray-800 text-white">
+          <About />
+        </section>
+        <section id="skills" class="min-h-screen bg-gray-800 text-white">
+          <Skills />
+        </section>
+        <section id="projects" class="min-h-screen bg-gray-800 text-white">
+          <Projects />
+        </section>
+        <section id="contacts" class="min-h-screen bg-gray-800 text-white">
+          <Contacts />
+        </section>
+      </div>
     </NavLayout>
   </div>
 </template>
-<style >
-  html {
-   scroll-behavior: smooth;
+<style>
+html {
+  scroll-behavior: smooth;
 }
 </style>

@@ -1,9 +1,9 @@
 <script setup>
-import {Projects} from "../../utils/ProjectDummy"
+import { Projects } from "../../utils/ProjectDummy"
 import ProjectCard from "../ProjectCard.vue"
 import "vue3-carousel/dist/carousel.css";
 
-import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";  
+import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 import { ref } from "vue";
 const settings = ref({
   itemsToShow: 1,
@@ -166,53 +166,40 @@ const breakpoints = ref({
 });
 </script>
 <template>
-    
- <div class="min-h-screen bg-black pt-32 flex w-full px-5 md:px-10">
-   <div class=" flex  flex-col gap-y-5 ">
-      <h1 class="text-5xl text-white self-center font-bold">My <span class=" text-teal-500">Projects</span></h1>
-       <carousel
-  
-       :wrapAround="true"
-        :autoplay="0"
-       :transition="700"
-        :breakpoints="breakpoints"
-        :settings="settings"
-       
-      class="w-auto mt-4 md:mt-7 h-full" 
-      >
-        <slide
-           
-          v-for="project in Projects"
-          :key="project.id"
-           class="px-0 md:px-5 xl:px-5 2xl:px-5 dark:text-white h-auto py-2"
 
-        >
+  <div class="min-h-screen bg-gray-800 pt-32 flex w-full px-5 md:px-10">
+    <div class=" flex  flex-col gap-y-5 ">
+      <h1 class="text-5xl text-white self-center font-bold">My <span class=" text-teal-500">Projects</span></h1>
+      <carousel :wrapAround="true" :autoplay="0" :transition="700" :breakpoints="breakpoints" :settings="settings"
+        class="w-auto mt-4 md:mt-7 h-full">
+        <slide v-for="project in Projects" :key="project.id"
+          class="px-0 md:px-5 xl:px-5 2xl:px-5 dark:text-white h-auto py-2">
           <ProjectCard :project="project" />
         </slide>
 
-       <template #addons>
-      <navigation />
-      <pagination />
-    </template>
+        <template #addons>
+          <navigation />
+          <pagination />
+        </template>
       </carousel>
-   </div>
-    
- </div>
+    </div>
+
+  </div>
 </template>
 
-<style >
-
+<style>
 .carousel__prev,
 .carousel__next {
   color: #058075;
-  padding: 5px; 
- 
+  padding: 5px;
+
   width: 70px;
   height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  /* Smooth transitions */
 }
 
 
@@ -221,6 +208,6 @@ const breakpoints = ref({
 .carousel__icon {
   width: 120px;
   height: 100px;
-  fill: #046654; 
+  fill: #046654;
 }
 </style>
