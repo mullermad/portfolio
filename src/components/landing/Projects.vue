@@ -190,24 +190,25 @@ const breakpoints = ref({
 <style>
 .carousel__prev,
 .carousel__next {
-  color: #058075;
-  padding: 5px;
-
-  width: 70px;
-  height: 60px;
+  color: white;
+  /* Set icon color to white */
+  padding: 10px;
+  width: 90px;
+  /* Increase width */
+  height: 80px;
+  /* Increase height */
   display: flex;
   justify-content: center;
   align-items: center;
   transition: background-color 0.3s ease, border-color 0.3s ease;
-  /* Smooth transitions */
 }
 
-
-
-
+/* Make the icons bigger and white */
 .carousel__icon {
-  width: 120px;
-  height: 100px;
-  fill: #046654;
+  width: 150px;
+  /* Increase icon size */
+  height: 120px;
+  fill: white;
+  /* Make the icons white */
 }
 </style>
