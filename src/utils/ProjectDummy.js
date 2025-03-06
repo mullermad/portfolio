@@ -1,5 +1,6 @@
 import template from "../assets/template.webp";
 import equb from "../assets/equbsystem.png";
+import nu_restaurant from "../assets/nu_restaurant.png";
 
 import internMentorship from "../assets/internmentorship.png";
 import cinema from "../assets/cinema.png";
@@ -22,8 +23,17 @@ export const Projects = [
       "A Digital Equb System is an innovative platform that digitizes the traditional Ethiopian practice of Equb, a community-based savings and lending system. It brings the concept into the digital era, enabling users to participate in savings groups more efficiently, securely, and transparently through technology",
     link: "https://github.com/mullermad",
   },
-  {
+ 
+   {
     id: 3,
+    photo: nu_restaurant,
+    title: "Nu Restaurant Website",
+    description:
+      "Nu Restaurant is a premier dining destination in Gondar, Ethiopia, offering a fusion of traditional and contemporary Ethiopian cuisine. The website provides an elegant platform for customers to explore the menu, make reservations, and learn about special events. Visitors can browse delicious dishes, check restaurant hours, and experience the unique ambiance of Nu Restaurant through rich visuals and engaging content.",
+    link: "https://nurestaurant.vercel.app/",
+  },
+   {
+    id: 4,
     photo: cinema,
     title: "Cinema Ticket Booking App",
     description:
