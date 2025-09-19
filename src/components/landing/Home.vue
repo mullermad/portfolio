@@ -85,7 +85,7 @@ function downloadCv() {
         </div>
 
         <!-- Image Section -->
-        <div class="w-full md:w-auto flex justify-center md:justify-end">
+        <div class="w-full md:w-auto flex justify-center">
           <div class="image-container group">
             <div class="image-glow"></div>
             <img src="/src/assets/photo_1.jpg" alt="Muluken Demis - Fullstack Developer"
