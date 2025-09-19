@@ -12,23 +12,23 @@ import Skills from "./components/landing/Skills.vue"
     <NavLayout id1="home" id2="about" id3="skills" id4="projects" id5="contacts">
       <div>
         <!-- Added proper spacing and removed excessive height constraints -->
-        <section id="home" class="min-h-screen bg-gray-800 text-white py-20">
+        <section id="home" class="min-h-screen bg-gray-800 text-white ">
           <Home />
         </section>
         
-        <section id="about" class="min-h-screen bg-gray-800 text-white py-20">
+        <section id="about" class="min-h-screen bg-gray-800 text-white py-10">
           <About />
         </section>
         
-        <section id="skills" class="min-h-screen bg-gray-800 text-white py-20">
+        <section id="skills" class="min-h-screen bg-gray-800 text-white py-10">
           <Skills />
         </section>
         
-        <section id="projects" class="min-h-screen bg-gray-800 text-white py-20">
+        <section id="projects" class="min-h-screen bg-gray-800 text-white py-10">
           <Projects />
         </section>
         
-        <section id="contacts" class="min-h-screen bg-gray-800 text-white py-20">
+        <section id="contacts" class="min-h-screen bg-gray-800 text-white py-10">
           <Contacts />
         </section>
       </div>
