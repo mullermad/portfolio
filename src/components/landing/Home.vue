@@ -16,7 +16,7 @@ function downloadCv() {
         
         <!-- Content Section -->
         <!-- Centered text alignment to match other components -->
-        <div class="w-full lg:w-1/2 space-y-6 text-center">
+        <div class="w-full lg:w-1/2 space-y-6 text-left">
           <!-- Combined greeting and name on same line with proper spacing -->
           <div class="space-y-4">
             <h1 class="text-4xl md:text-6xl font-bold leading-tight">
@@ -36,13 +36,13 @@ function downloadCv() {
           
           <!-- Bio -->
           <!-- Centered bio text with proper max-width -->
-          <p class="text-gray-300 leading-relaxed text-base md:text-lg max-w-2xl mx-auto">
+          <p class="text-gray-300 leading-relaxed text-base md:text-lg max-w-2xl">
             Hi, I'm Muluken Demis, a passionate full-stack developer specializing in Vue.js, Nuxt 3, and React for the frontend, and Express.js for the backend. I build dynamic, scalable, and user-centric applications by combining innovative frontend interfaces with robust backend solutions.
           </p>
 
           <!-- Social Links -->
           <!-- Centered social links -->
-          <div class="flex justify-center space-x-6 pt-4">
+          <div class="flex justify-start space-x-6 pt-4">
             <a href="https://t.me/AmDeMu" target="_blank" 
                class="social-link group">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="social-icon">
@@ -73,7 +73,7 @@ function downloadCv() {
 
           <!-- CTA Button -->
           <!-- Centered CTA button -->
-          <div class="pt-6 flex justify-center">
+          <div class="pt-6 flex justify-start">
             <button @click="downloadCv"
               class="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full hover:from-teal-400 hover:to-cyan-400 hover:shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-1">
               <span class="relative z-10 flex items-center gap-2">
