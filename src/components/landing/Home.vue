@@ -9,16 +9,16 @@ function downloadCv() {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-900 relative overflow-hidden">
+  <div class="min-h-screen bg-gray-800 text-white flex items-center justify-center px-6">
     <!-- Background gradient overlay -->
     <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
     <div class="absolute inset-0 bg-gradient-to-r from-teal-500/5 to-cyan-500/5"></div>
     
-    <div class="relative z-10 pt-24 md:pt-40 pb-40 md:ml-20">
-      <div class="px-5 md:px-16 flex flex-col md:flex-row items-center md:items-start justify-between w-full gap-12">
+    <div class="container mx-auto max-w-6xl">
+      <div class="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
         
         <!-- Content Section -->
-        <div class="w-full md:w-1/2 flex flex-col gap-6 text-center">
+        <div class="w-full lg:w-1/2 space-y-8 text-center">
           <!-- Greeting -->
           <div class="space-y-2">
             <h1 class="text-white/90 font-light text-2xl md:text-3xl tracking-wide">Hello</h1>
@@ -41,7 +41,7 @@ function downloadCv() {
           </p>
 
           <!-- Social Links -->
-          <div class="flex justify-center gap-6 mt-6">
+          <div class="flex justify-center space-x-6">
             <a href="https://t.me/AmDeMu" target="_blank" 
                class="social-link group">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="social-icon">
@@ -71,21 +71,23 @@ function downloadCv() {
           </div>
 
           <!-- CTA Button -->
-          <button @click="downloadCv"
-            class="cta-button group mt-8 mx-auto">
-            <span class="relative z-10 flex items-center gap-2">
-              Download CV
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-y-0.5">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="7,10 12,15 17,10"/>
-                <line x1="12" y1="15" x2="12" y2="3"/>
-              </svg>
-            </span>
-          </button>
+          <div class="pt-4">
+            <button @click="downloadCv"
+              class="group relative inline-flex items-center justify-center px-8 py-4 mx-auto bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 overflow-hidden">
+              <span class="relative z-10 flex items-center gap-2">
+                Download CV
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-y-0.5">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7,10 12,15 17,10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+              </span>
+            </button>
+          </div>
         </div>
 
         <!-- Image Section -->
-        <div class="w-full md:w-auto flex justify-center md:justify-end">
+        <div class="w-full lg:w-auto flex justify-center lg:justify-end">
           <div class="image-container group">
             <div class="image-glow"></div>
             <img src="/src/assets/photo_1.jpg" alt="Muluken Demis - Fullstack Developer"
@@ -109,7 +111,7 @@ function downloadCv() {
 
 /* CTA Button */
 .cta-button {
-  @apply relative px-8 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-teal-500/25 hover:-translate-y-1 w-fit;
+  @apply relative px-8 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 overflow-hidden;
 }
 
 .cta-button::before {
