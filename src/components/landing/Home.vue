@@ -14,8 +14,8 @@ function downloadCv() {
     <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
     <div class="absolute inset-0 bg-gradient-to-r from-teal-500/5 to-cyan-500/5"></div>
     
-    <div class="relative z-10 pt-24 md:pt-40 pb-40 md:ml-20">
-      <div class="px-5 md:px-16 flex flex-col md:flex-row items-center md:items-start justify-between w-full gap-12">
+    <div class="relative z-10 pt-24 md:pt-40 pb-40">
+      <div class="px-5 md:px-16 flex flex-col md:flex-row items-center justify-between w-full gap-12">
         
         <!-- Content Section -->
         <div class="w-full md:w-1/2 flex flex-col gap-6 text-center">
