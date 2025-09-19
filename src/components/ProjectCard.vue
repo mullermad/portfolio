@@ -1,38 +1,59 @@
 <script setup>
-import image from "../assets/template.webp"
 import Card from 'primevue/card';
+import { Github, ExternalLink } from 'lucide-vue-next';
+
 const props = defineProps({
   project: {
-    type: Object
+    type: Object,
+    required: true
   }
 })
-import images from "../assets/git.png"
 </script>
+
 <template>
-  <div
-    class="flex flex-col   mr-3 rounded-2xl bg-gray-700  pb-10  relative  ring ring-transparent hover:ring-sky-500 group">
-    <Card style="overflow:visible  ">
-      <template #header>
-        <img :src="props.project.photo" alt="there is no photo" class="object-cover h-[15rem] rounded-2xl" />
-      </template>
-      <template #title>
-        <h1 class="text-sky-500  py-2 text-2xl font-bold">{{ props.project.title }}</h1>
-      </template>
-      <template #content>
-        <div class="relative">
-          <p class="text-justify  transition-all line-clamp-6 duration-300 text-white px-3  overflow-hidden text-sm">
-            {{ props.project.description }}
-          </p>
-          <!-- Fade-out effect -->
-          <!-- <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-gray-900 to-transparent pointer-events-none"></div> -->
+  <!-- Complete redesign with modern card styling -->
+  <div class="group h-full">
+    <div class="bg-card border border-border rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 h-full flex flex-col">
+      <!-- Improved image container -->
+      <div class="relative overflow-hidden">
+        <img 
+          :src="props.project.photo" 
+          :alt="props.project.title" 
+          class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" 
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </div>
+
+      <!-- Better content layout and typography -->
+      <div class="p-6 flex-1 flex flex-col">
+        <h3 class="text-xl font-bold text-accent mb-3 line-clamp-2">
+          {{ props.project.title }}
+        </h3>
+        
+        <p class="text-card-foreground text-sm leading-relaxed mb-6 flex-1 line-clamp-4">
+          {{ props.project.description }}
+        </p>
+
+        <!-- Modern action buttons -->
+        <div class="flex items-center justify-between pt-4 border-t border-border">
+          <div class="flex items-center space-x-3">
+            <a 
+              :href="props.project?.link" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-200 text-sm font-medium"
+            >
+              <Github class="w-4 h-4 mr-2" />
+              View Code
+            </a>
+            
+            <button class="inline-flex items-center px-4 py-2 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/90 transition-colors duration-200 text-sm font-medium">
+              <ExternalLink class="w-4 h-4 mr-2" />
+              Live Demo
+            </button>
+          </div>
         </div>
-      </template>
-    </Card>
-    <div class="absolute top-[28rem] left-56 md:left-96 transition-opacity duration-300">
-      <a :href="props.project?.link" target="_blank" rel="noopener noreferrer"
-        className=" w-32 py-1 rounded-xl text-center block text-white transition">
-        <img :src="images" alt="this is github" class="w-8 h-8 object-cover">
-      </a>
+      </div>
     </div>
   </div>
 </template>
