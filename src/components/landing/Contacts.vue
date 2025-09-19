@@ -11,7 +11,8 @@ const content = ref("")
 
 </script>
 <template>
-    <div class="bg-gray-800 min-h-screen w-full pt-24 pb-40 flex justify-center items-center">
+    <!-- <CHANGE> changed background from bg-gray-800 to bg-black -->
+    <div class="bg-black min-h-screen w-full pt-24 pb-40 flex justify-center items-center">
         <div class="flex flex-col px -5  md:px-64 items-center">
             <h1 class="text-5xl text-white font-bold md:self-center">Contact <span
                     class="text-5xl text-teal-500">Me</span></h1>
