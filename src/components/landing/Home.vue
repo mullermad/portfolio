@@ -4,7 +4,7 @@ import { Icon } from '@iconify/vue';
 // import {Vue3Marquee} from "vue3-marquee"
 import image from "../../assets/photo_1.jpg"
 function downloadCv() {
-  window.open('/cv/Muluken-Demis-finalcv.pdf', '_blank');
+  window.open('/cv/Muluken_Demis_Resume (5) - Copy.pdf', '_blank');
 }
 </script>
 <template>
