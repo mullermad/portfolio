@@ -19,20 +19,19 @@ function downloadCv() {
         
         <!-- Content Section -->
         <div class="w-full md:w-1/2 flex flex-col gap-6 text-center">
-          <!-- Greeting -->
-          <div class="space-y-2">
-            <h1 class="text-white/90 font-light text-2xl md:text-3xl tracking-wide">Hello</h1>
-            <h1 class="text-transparent bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text font-bold text-4xl md:text-6xl leading-tight">
-              Muluken Demis
-            </h1>
+          <!-- Combined greeting and name on same line with proper spacing -->
+          <div class="space-y-1">
+            <div class="text-white/90 font-light text-2xl md:text-3xl tracking-wide">
+              Hello 
+              <span class="text-transparent bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text font-bold text-4xl md:text-6xl leading-tight ml-2">
+                Muluken Demis
+              </span>
+            </div>
           </div>
           
-          <!-- Role -->
+          <!-- Role text on same line with consistent spacing -->
           <div class="text-white font-semibold text-xl md:text-2xl">
-            <span class="text-white/80">I am a </span>
-            <span class="frontend-developer text-transparent bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text">
-              Fullstack Developer
-            </span>
+            <span class="text-white/80">I am a </span><span class="frontend-developer text-transparent bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text">Fullstack Developer</span>
           </div>
           
           <!-- Bio -->
