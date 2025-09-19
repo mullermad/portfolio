@@ -31,12 +31,12 @@ export const Projects = [
     title: "Nu Restaurant Website",
     description:
       "Nu Restaurant is a premier dining destination in Gondar, Ethiopia, offering a fusion of traditional and contemporary Ethiopian cuisine. The website provides an elegant platform for customers to explore the menu, make reservations, and learn about special events. Visitors can browse delicious dishes, check restaurant hours, and experience the unique ambiance of Nu Restaurant through rich visuals and engaging content.",
-    link: "https://nurestaurant.vercel.app/",
+    link: "https://www.nu-restaurant.com/",
   },
   {
     id: 4,
     photo: restaurant_management,
-    title: "Restaurant Management System",
+    title: "Restaurant POS System",
     description: `"A comprehensive Restaurant Management System designed to streamline restaurant operations, including order management, reservations, staff coordination, and inventory tracking. The system enhances efficiency with key features such as:  
       
      Waiter Ordering System**: Allows waiters to take customer orders digitally, reducing errors and ensuring faster service. Orders are instantly sent to the kitchen display system for processing.  
@@ -44,7 +44,7 @@ export const Projects = [
       - **Inventory Management System**: Tracks ingredient usage, monitors stock levels, and provides alerts for low-stock items. Helps restaurants reduce waste and optimize supply chain management.  
       
       With an intuitive interface, the system simplifies restaurant workflow, ensuring smooth operations and improved service quality."`,
-    link: "https://nu-cafe-and-restaurant.vercel.app/",
+    link: "https://pos.nu-restaurant.com/",
   },
 
   {
