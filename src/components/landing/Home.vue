@@ -18,7 +18,7 @@ function downloadCv() {
       <div class="px-5 md:px-16 flex flex-col md:flex-row items-center md:items-start justify-between w-full gap-12">
         
         <!-- Content Section -->
-        <div class="w-full md:w-1/2 flex flex-col gap-6 text-center md:text-left">
+        <div class="w-full md:w-1/2 flex flex-col gap-6 text-center">
           <!-- Greeting -->
           <div class="space-y-2">
             <h1 class="text-white/90 font-light text-2xl md:text-3xl tracking-wide">Hello</h1>
@@ -36,12 +36,12 @@ function downloadCv() {
           </div>
           
           <!-- Bio -->
-          <p class="text-gray-300 leading-relaxed text-base md:text-lg max-w-2xl">
+          <p class="text-gray-300 leading-relaxed text-base md:text-lg max-w-2xl mx-auto">
             Hi, I'm Muluken Demis, a passionate full-stack developer specializing in Vue.js, Nuxt 3, and React for the frontend, and Express.js for the backend. I build dynamic, scalable, and user-centric applications by combining innovative frontend interfaces with robust backend solutions.
           </p>
 
           <!-- Social Links -->
-          <div class="flex justify-center md:justify-start gap-6 mt-6">
+          <div class="flex justify-center gap-6 mt-6">
             <a href="https://t.me/AmDeMu" target="_blank" 
                class="social-link group">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="social-icon">
@@ -72,7 +72,7 @@ function downloadCv() {
 
           <!-- CTA Button -->
           <button @click="downloadCv"
-            class="cta-button group mt-8 mx-auto md:mx-0">
+            class="cta-button group mt-8 mx-auto">
             <span class="relative z-10 flex items-center gap-2">
               Download CV
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-y-0.5">
