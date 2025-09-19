@@ -16,19 +16,19 @@ import Skills from "./components/landing/Skills.vue"
           <Home />
         </section>
         
-        <section id="about" class="min-h-screen bg-gray-800 text-white py-10">
+        <section id="about" class="min-h-screen bg-gray-800 text-white">
           <About />
         </section>
         
-        <section id="skills" class="min-h-screen bg-gray-800 text-white py-10">
+        <section id="skills" class="min-h-screen bg-gray-800 text-white">
           <Skills />
         </section>
         
-        <section id="projects" class="min-h-screen bg-gray-800 text-white py-10">
+        <section id="projects" class="min-h-screen bg-gray-800 text-white">
           <Projects />
         </section>
         
-        <section id="contacts" class="min-h-screen bg-gray-800 text-white py-10">
+        <section id="contacts" class="min-h-screen bg-gray-800 text-white">
           <Contacts />
         </section>
       </div>
