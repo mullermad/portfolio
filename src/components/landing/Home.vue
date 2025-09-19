@@ -10,13 +10,12 @@ function downloadCv() {
 
 <template>
   <div class="min-h-screen bg-gray-900 py-16 md:py-24">
-    <!-- Right-aligned padding to push content to the right side -->
-    <div class="px-6 md:px-12 lg:px-20 md:mr-20">
-      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 justify-end">
+    <!-- Removed container mx-auto and added right-aligned padding to match navbar alignment -->
+    <div class="px-6 md:px-12 lg:px-20 md:ml-20">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         
         <!-- Content Section -->
-        <!-- Right-aligned text and content positioning -->
-        <div class="w-full lg:w-1/2 space-y-6 text-center lg:text-right">
+        <div class="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
           <!-- Combined greeting and name on same line with proper spacing -->
           <div class="space-y-4">
             <h1 class="text-4xl md:text-6xl font-bold leading-tight">
@@ -35,14 +34,12 @@ function downloadCv() {
           </div>
           
           <!-- Bio -->
-          <!-- Right-aligned bio text with margin adjustments -->
-          <p class="text-gray-300 leading-relaxed text-base md:text-lg max-w-2xl mx-auto lg:ml-auto lg:mr-0">
+          <p class="text-gray-300 leading-relaxed text-base md:text-lg max-w-2xl mx-auto lg:mx-0">
             Hi, I'm Muluken Demis, a passionate full-stack developer specializing in Vue.js, Nuxt 3, and React for the frontend, and Express.js for the backend. I build dynamic, scalable, and user-centric applications by combining innovative frontend interfaces with robust backend solutions.
           </p>
 
           <!-- Social Links -->
-          <!-- Right-aligned social links -->
-          <div class="flex justify-center lg:justify-end space-x-6 pt-4">
+          <div class="flex justify-center lg:justify-start space-x-6 pt-4">
             <a href="https://t.me/AmDeMu" target="_blank" 
                class="social-link group">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="social-icon">
@@ -72,10 +69,9 @@ function downloadCv() {
           </div>
 
           <!-- CTA Button -->
-          <!-- Right-aligned CTA button -->
-          <div class="pt-6 flex justify-center lg:justify-end">
+          <div class="pt-6">
             <button @click="downloadCv"
-              class="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full hover:from-teal-400 hover:to-cyan-400 hover:shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-1">
+              class="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full hover:from-teal-400 hover:to-cyan-400 hover:shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-1 mx-auto lg:mx-0">
               <span class="relative z-10 flex items-center gap-2">
                 Download CV
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-y-0.5">
@@ -89,7 +85,7 @@ function downloadCv() {
         </div>
 
         <!-- Profile Image Section -->
-        <div class="w-full lg:w-1/2 flex justify-center lg:order-first">
+        <div class="w-full lg:w-1/2 flex justify-center">
           <div class="relative group">
             <div class="absolute -inset-1 bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
             <img 
