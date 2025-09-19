@@ -8,22 +8,27 @@ import Projects from "./components/landing/Projects.vue"
 import Skills from "./components/landing/Skills.vue"
 </script>
 <template>
-  <div class="overflow-x-hidden overflow-y-hidden">
-    <NavLayout id1="home" id2="about " id3="skills" id4="projects" id5="contacts">
+  <div class="overflow-x-hidden">
+    <NavLayout id1="home" id2="about" id3="skills" id4="projects" id5="contacts">
       <div>
-        <section id="home" class="min-h-screen bg-gray-800 text-white">
+        <!-- Added proper spacing and removed excessive height constraints -->
+        <section id="home" class="min-h-screen bg-gray-800 text-white flex items-center">
           <Home />
         </section>
-        <section id="about" class="min-h-screen bg-gray-800 text-white">
+        
+        <section id="about" class="min-h-screen bg-gray-800 text-white py-20">
           <About />
         </section>
-        <section id="skills" class="min-h-screen bg-gray-800 text-white">
+        
+        <section id="skills" class="min-h-screen bg-gray-800 text-white py-20">
           <Skills />
         </section>
-        <section id="projects" class="min-h-screen bg-gray-800 text-white">
+        
+        <section id="projects" class="min-h-screen bg-gray-800 text-white py-20">
           <Projects />
         </section>
-        <section id="contacts" class="min-h-screen bg-gray-800 text-white">
+        
+        <section id="contacts" class="min-h-screen bg-gray-800 text-white py-20">
           <Contacts />
         </section>
       </div>
@@ -33,5 +38,17 @@ import Skills from "./components/landing/Skills.vue"
 <style>
 html {
   scroll-behavior: smooth;
+}
+
+/* Added smooth transitions between sections */
+section {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Ensure proper spacing and alignment */
+section:not(#home) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
