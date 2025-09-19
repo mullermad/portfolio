@@ -10,7 +10,8 @@ function downloadCv() {
 
 <template>
   <div class="min-h-screen bg-gray-900 py-16 md:py-24">
-    <div class="container mx-auto px-6 md:px-12 lg:px-20">
+    <!-- Removed container mx-auto and added right-aligned padding to match navbar alignment -->
+    <div class="px-6 md:px-12 lg:px-20 md:ml-20">
       <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         
         <!-- Content Section -->
