@@ -12,7 +12,7 @@ import Skills from "./components/landing/Skills.vue"
     <NavLayout id1="home" id2="about" id3="skills" id4="projects" id5="contacts">
       <div>
         <!-- Added proper spacing and removed excessive height constraints -->
-        <section id="home" class="min-h-screen bg-gray-800 text-white py-20">
+        <section id="home" class="min-h-screen bg-gray-800 text-white flex items-center">
           <Home />
         </section>
         
