@@ -22,7 +22,7 @@ function downloadCv() {
           <!-- Combined greeting and name on same line with proper spacing -->
           <div class="space-y-1">
             <div class="text-white/90 font-light text-2xl md:text-3xl tracking-wide">
-              Hello 
+              
               <span class="text-transparent bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text font-bold text-4xl md:text-6xl leading-tight ml-2">
                 Muluken Demis
               </span>
