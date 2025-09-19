@@ -33,7 +33,7 @@ function downloadCv() {
                 543-.566-.543-.8s.18-.423.543-.8l3.573-3.724" color="currentColor" />
               </svg>
             </a>
-            <a href="http://www.linkedin.com/in/muluken-demis-711107259" target="_blank">
+            <a href="http://www.linkedin.com/in/muluken-demis-3b3736375" target="_blank">
               <svg style="color:teal; cursor: pointer;" xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem"
                 viewBox="0 0 24 24">
                 <path fill="teal" fill-rule="evenodd"
