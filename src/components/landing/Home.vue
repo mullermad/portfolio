@@ -9,38 +9,36 @@ function downloadCv() {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-900 relative overflow-hidden">
-    <!-- Background gradient overlay -->
-    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-teal-500/5 to-cyan-500/5"></div>
-    
-    <div class="relative z-10 pt-24 md:pt-40 pb-40">
-      <div class="px-5 md:px-16 flex flex-col md:flex-row items-center justify-between w-full gap-12">
+  <div class="min-h-screen bg-gray-900 py-16 md:py-24">
+    <div class="container mx-auto px-6 md:px-12 lg:px-20">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         
         <!-- Content Section -->
-        <div class="w-full md:w-1/2 flex flex-col gap-6 text-center">
+        <div class="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
           <!-- Combined greeting and name on same line with proper spacing -->
-          <div class="space-y-1">
-            <div class="text-white/90 font-light text-2xl md:text-3xl tracking-wide">
-              
-              <span class="text-transparent bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text font-bold text-4xl md:text-6xl leading-tight ml-2">
+          <div class="space-y-4">
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+              <span class="text-white/90">Hello</span>
+              <span class="ml-2 bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
                 Muluken Demis
               </span>
-            </div>
-          </div>
-          
-          <!-- Role text on same line with consistent spacing -->
-          <div class="text-white font-semibold text-xl md:text-2xl">
-            <span class="text-white/80">I am a </span><span class="frontend-developer text-transparent bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text">Fullstack Developer</span>
+            </h1>
+            
+            <h2 class="text-2xl md:text-3xl font-semibold">
+              <span class="text-white/80">I am a </span>
+              <span class="bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent animate-pulse">
+                Fullstack Developer
+              </span>
+            </h2>
           </div>
           
           <!-- Bio -->
-          <p class="text-gray-300 leading-relaxed text-base md:text-lg max-w-2xl mx-auto">
+          <p class="text-gray-300 leading-relaxed text-base md:text-lg max-w-2xl mx-auto lg:mx-0">
             Hi, I'm Muluken Demis, a passionate full-stack developer specializing in Vue.js, Nuxt 3, and React for the frontend, and Express.js for the backend. I build dynamic, scalable, and user-centric applications by combining innovative frontend interfaces with robust backend solutions.
           </p>
 
           <!-- Social Links -->
-          <div class="flex justify-center gap-6 mt-6">
+          <div class="flex justify-center lg:justify-start space-x-6 pt-4">
             <a href="https://t.me/AmDeMu" target="_blank" 
                class="social-link group">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="social-icon">
@@ -70,25 +68,30 @@ function downloadCv() {
           </div>
 
           <!-- CTA Button -->
-          <button @click="downloadCv"
-            class="cta-button group mt-8 mx-auto">
-            <span class="relative z-10 flex items-center gap-2">
-              Download CV
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-y-0.5">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="7,10 12,15 17,10"/>
-                <line x1="12" y1="15" x2="12" y2="3"/>
-              </svg>
-            </span>
-          </button>
+          <div class="pt-6">
+            <button @click="downloadCv"
+              class="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full hover:from-teal-400 hover:to-cyan-400 hover:shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-1 mx-auto lg:mx-0">
+              <span class="relative z-10 flex items-center gap-2">
+                Download CV
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-y-0.5">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7,10 12,15 17,10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+              </span>
+            </button>
+          </div>
         </div>
 
-        <!-- Image Section -->
-        <div class="w-full md:w-auto flex justify-center md:justify-end">
-          <div class="image-container group">
-            <div class="image-glow"></div>
-            <img src="/src/assets/photo_1.jpg" alt="Muluken Demis - Fullstack Developer"
-              class="profile-image">
+        <!-- Profile Image Section -->
+        <div class="w-full lg:w-1/2 flex justify-center">
+          <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+            <img 
+              src="/src/assets/photo_1.jpg" 
+              alt="Muluken Demis - Fullstack Developer"
+              class="relative w-80 h-80 md:w-96 md:h-96 object-cover rounded-full border-4 border-gray-800 shadow-2xl transform group-hover:scale-105 transition-all duration-300"
+            >
           </div>
         </div>
       </div>
