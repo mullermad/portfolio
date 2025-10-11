@@ -16,9 +16,7 @@ import Skills from "./components/landing/Skills.vue"
           <Home />
         </section>
         
-        <section id="about" class="min-h-screen bg-gray-800 text-white">
-          <About />
-        </section>
+      
         
         <section id="skills" class="min-h-screen bg-gray-800 text-white">
           <Skills />
