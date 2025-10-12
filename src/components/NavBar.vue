@@ -35,13 +35,7 @@ const handleClick = (value) => {
                 Home
                 <span v-if="currentNav == 'home'" class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-teal-400 to-cyan-400"></span>
               </a>
-              <a @click="handleClick('about')" 
-                class="relative px-3 py-2 rounded-lg transition-all duration-300 hover:text-teal-400 hover:bg-gray-800/50"
-                :class="{ 'text-teal-400 bg-gray-800/50': currentNav === 'about' }" 
-                :href="`#${props.id2}`">
-                About
-                <span v-if="currentNav === 'about'" class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-teal-400 to-cyan-400"></span>
-              </a>
+            
               <a @click="handleClick('skills')" 
                 class="relative px-3 py-2 rounded-lg transition-all duration-300 hover:text-teal-400 hover:bg-gray-800/50"
                 :class="{ 'text-teal-400 bg-gray-800/50': currentNav === 'skills' }" 
