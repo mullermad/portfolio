@@ -25,8 +25,9 @@ function downloadCv() {
            <p class="text-lg text-gray-400 leading-relaxed max-w-xl">
               "Hello! I'm <span class="text-teal-400 font-semibold">Muluken Demis</span>, a dedicated
               full-stack developer with a strong focus on creating seamless digital experiences. With expertise in
+             <span class="text-cyan-400">React</span>, <span class="text-cyan-400">Next.js</span>,
               <span class="text-cyan-400">Vue.js</span>, <span class="text-cyan-400">Nuxt3</span>,
-              <span class="text-cyan-400">React</span>, <span class="text-cyan-400">Node.js with Express</span>, and <span class="text-cyan-400">Go</span>, I thrive at the intersection of clean, intuitive front-end design and
+             , <span class="text-cyan-400">Node.js with Express</span>,  <span class="text-cyan-400">Django(DRF)</span>,and <span class="text-cyan-400">Go</span>, I thrive at the intersection of clean, intuitive front-end design and
               efficient, scalable back-end development."
             </p>
 
