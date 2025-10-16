@@ -66,9 +66,11 @@
 
 <script setup>
 const technicalSkills = [
+  { name: 'React', level: 90 },
+   { name: 'Nextjsj', level: 90 },
   { name: 'Vue.js', level: 94 },
   { name: 'Nuxt3', level: 97 },
-  { name: 'React', level: 90 },
+  { name: 'Django(DRF)', level: 75 },
   { name: 'JavaScript', level: 85 },
   { name: 'Node.js & Express', level: 90 },
   { name: 'Tailwind CSS', level: 90 },
