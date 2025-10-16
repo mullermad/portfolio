@@ -16,9 +16,7 @@ import Footer from "./components/Footer.vue"
         <Home />
       </section>
       
-      <section id="about" class="min-h-screen bg-gray-900 text-white">
-        <About />
-      </section>
+     
       
       <section id="skills" class="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
         <Skills />
