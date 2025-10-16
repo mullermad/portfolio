@@ -3,7 +3,11 @@ import { ref } from 'vue'
 import ProjectCard from '../ProjectCard.vue'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
-
+import internMentorship from "@/assets/internMentorship.jpg";
+import equb from "@/assets/equb.jpg";
+import nu_restaurant from "@/assets/nu_restaurant.jpg";
+import restaurant_management from "@/assets/restaurant_management.jpg";
+import cinema from "@/assets/cinema.jpg";
 const settings = ref({
   itemsToShow: 1,
   snapAlign: 'start',
@@ -16,56 +20,57 @@ const breakpoints = ref({
   1280: { itemsToShow: 3, snapAlign: 'start' },
 })
 
-export const Projects = [
+// import your project images
+
+
+export const projects = [
   {
     id: 1,
-    title: "mentorship",
-    photo: internMentorship,
+    title: "Mentorship System",
     description:
-      "A mentorship system is a structured platform designed to facilitate the relationship between mentors and mentees. It connects individuals seeking guidance (mentees) with experienced professionals or advisors (mentors) to help mentees achieve their personal or professional goals. Here’s a detailed description of such a system.",
-
+      "A structured platform connecting mentors and mentees to support career and personal growth through guided mentorship programs.",
+    image: internMentorship,
+    tags: ["React", "Node.js", "Express", "MongoDB"],
     link: "https://mentorship-sooty.vercel.app/",
   },
   {
     id: 2,
     title: "Digital Equb System",
-    photo: equb,
     description:
-      "A Digital Equb System is an innovative platform that digitizes the traditional Ethiopian practice of Equb, a community-based savings and lending system. It brings the concept into the digital era, enabling users to participate in savings groups more efficiently, securely, and transparently through technology",
+      "A digital version of the traditional Ethiopian Equb, enabling members to manage savings and lending securely and transparently online.",
+    image: equb,
+    tags: ["Vue.js", "Firebase", "Tailwind CSS"],
     link: "https://github.com/mullermad",
   },
-
   {
     id: 3,
-    photo: nu_restaurant,
     title: "Nu Restaurant Website",
     description:
-      "Nu Restaurant is a premier dining destination in Gondar, Ethiopia, offering a fusion of traditional and contemporary Ethiopian cuisine. The website provides an elegant platform for customers to explore the menu, make reservations, and learn about special events. Visitors can browse delicious dishes, check restaurant hours, and experience the unique ambiance of Nu Restaurant through rich visuals and engaging content.",
+      "A modern, elegant restaurant website showcasing menu items, reservations, and events with smooth design and responsive layout.",
+    image: nu_restaurant,
+    tags: ["Nuxt3", "Tailwind CSS", "UI/UX Design"],
     link: "https://www.nu-restaurant.com/",
   },
   {
     id: 4,
-    photo: restaurant_management,
     title: "Restaurant POS System",
-    description: `"A comprehensive Restaurant Management System designed to streamline restaurant operations, including order management, reservations, staff coordination, and inventory tracking. The system enhances efficiency with key features such as:  
-      
-     Waiter Ordering System**: Allows waiters to take customer orders digitally, reducing errors and ensuring faster service. Orders are instantly sent to the kitchen display system for processing.  
-      - **Kitchen Display System (KDS)**: Displays real-time orders in the kitchen, helping chefs manage preparation efficiently. It eliminates the need for paper tickets and improves workflow.  
-      - **Inventory Management System**: Tracks ingredient usage, monitors stock levels, and provides alerts for low-stock items. Helps restaurants reduce waste and optimize supply chain management.  
-      
-      With an intuitive interface, the system simplifies restaurant workflow, ensuring smooth operations and improved service quality."`,
+    description:
+      "A comprehensive restaurant management system featuring waiter ordering, kitchen display, and inventory tracking to improve efficiency.",
+    image: restaurant_management,
+    tags: ["React", "Express", "MySQL", "Socket.io"],
     link: "https://pos.nu-restaurant.com/",
   },
-
   {
     id: 5,
-    photo: cinema,
     title: "Cinema Ticket Booking App",
     description:
-      "A Cinema App is a digital platform that provides users with a seamless way to browse movies, check cinema schedules, book tickets, and engage with cinematic content. It is mainly used for booking tickets, watching movie trailers, and exploring various movie-related features. Users can view details about upcoming and currently showing movies, read synopses, check ratings and reviews, and even filter movies based on genres, directors, or actors.",
+      "A cinema booking app for browsing movies, checking schedules, and purchasing tickets online, inspired by platforms like Fandango.",
+    image: cinema,
+    tags: ["Nuxt3", "Tailwind CSS", "Firebase"],
     link: "https://cinema-app-liart.vercel.app/",
   },
 ];
+
 
 </script>
 
