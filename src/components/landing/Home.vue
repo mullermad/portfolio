@@ -12,7 +12,6 @@ function downloadCv() {
         <!-- Content Section -->
         <div class="w-full lg:w-1/2 space-y-8">
           <div class="space-y-4">
-            <p class="text-teal-400 font-semibold text-lg tracking-wide">Welcome to my portfolio</p>
             <h1 class="text-5xl md:text-7xl font-bold leading-tight text-white">
               Hi, I'm <span class="bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">Muluken</span>
             </h1>
