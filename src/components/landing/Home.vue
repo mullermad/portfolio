@@ -1,6 +1,6 @@
 <script setup>
 function downloadCv() {
-  window.open('/cv/Muluken_Demis_Resume.pdf', '_blank')
+  window.open('/cv/Muluken_Demis_Resume (5) - Copy.pdf', '_blank');
 }
 </script>
 
