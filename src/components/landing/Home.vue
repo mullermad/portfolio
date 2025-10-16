@@ -17,13 +17,18 @@ function downloadCv() {
               Hi, I'm <span class="bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">Muluken</span>
             </h1>
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-300">
-              Fullstack Developer & Creative Problem Solver
+              Fullstack Developer 
             </h2>
           </div>
           
-          <p class="text-lg text-gray-400 leading-relaxed max-w-xl">
-            I craft beautiful, scalable web applications using Vue.js, React, and Node.js. With 1 year of hands-on experience, I'm passionate about building solutions that make a real impact.
-          </p>
+        
+           <p class="text-lg text-gray-400 leading-relaxed max-w-xl">
+              "Hello! I'm <span class="text-teal-400 font-semibold">Muluken Demis</span>, a dedicated
+              full-stack developer with a strong focus on creating seamless digital experiences. With expertise in
+              <span class="text-cyan-400">Vue.js</span>, <span class="text-cyan-400">Nuxt3</span>,
+              <span class="text-cyan-400">React</span>, <span class="text-cyan-400">Node.js with Express</span>, and <span class="text-cyan-400">Go</span>, I thrive at the intersection of clean, intuitive front-end design and
+              efficient, scalable back-end development."
+            </p>
 
           <!-- Social Links -->
           <div class="flex gap-4 pt-4">
