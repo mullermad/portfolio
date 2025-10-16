@@ -6,7 +6,7 @@ import About from "./components/landing/About.vue"
 import Skills from "./components/landing/Skills.vue"
 import Projects from "./components/landing/Projects.vue"
 import Contacts from "./components/landing/Contacts.vue"
-import Footer from "./components/landing/Footer.vue"
+import Footer from "./components/Footer.vue"
 </script>
 
 <template>
