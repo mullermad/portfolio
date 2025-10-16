@@ -1,89 +1,62 @@
 <script setup>
-import { Icons } from "../../utils/DummyData"
-import { Icon } from '@iconify/vue';
-import image from "../../assets/photo_1.jpg"
-
 function downloadCv() {
-  window.open('/cv/Muluken_Demis_Resume (5) - Copy.pdf', '_blank');
+  window.open('/cv/Muluken_Demis_Resume.pdf', '_blank')
 }
 </script>
 
 <template>
-  <div class="min-h-screen  bg-gray-900 py-16 md:py-24 ">
-    <!-- Using same container structure as navbar for proper alignment -->
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col lg:flex-row items-center gap-6 lg:gap-8">
+  <div class="min-h-screen flex items-center justify-center py-16 md:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         
         <!-- Content Section -->
-        <!-- Centered text alignment to match other components -->
-        <div class="w-full lg:w-1/2 space-y-6 text-left">
-          <!-- Combined greeting and name on same line with proper spacing -->
+        <div class="w-full lg:w-1/2 space-y-8">
           <div class="space-y-4">
-            <h1 class="text-lg md:text-6xl font-semibold leading-tight">
-              <span class="ml-2 bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                Muluken Demis
-              </span>
+            <p class="text-teal-400 font-semibold text-lg tracking-wide">Welcome to my portfolio</p>
+            <h1 class="text-5xl md:text-7xl font-bold leading-tight text-white">
+              Hi, I'm <span class="bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">Muluken</span>
             </h1>
-            
-            <h2 class="text-xl md:text-3xl font-semibold">
-              <span class="text-white/80">I am a </span>
-              <span class="bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent animate-pulse">
-                Fullstack Developer
-              </span>
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-300">
+              Fullstack Developer & Creative Problem Solver
             </h2>
           </div>
           
-          <!-- Bio -->
-          <!-- Centered bio text with proper max-width -->
-          <p class="text-gray-300 leading-relaxed text-base md:text-lg max-w-2xl">
-            Hi, I'm Muluken Demis, a passionate full-stack developer specializing in Vue.js, Nuxt 3, and React for the frontend, and Express.js for the backend. I build dynamic, scalable, and user-centric applications by combining innovative frontend interfaces with robust backend solutions.
+          <p class="text-lg text-gray-400 leading-relaxed max-w-xl">
+            I craft beautiful, scalable web applications using Vue.js, React, and Node.js. With 1 year of hands-on experience, I'm passionate about building solutions that make a real impact.
           </p>
 
           <!-- Social Links -->
-          <!-- Centered social links -->
-          <div class="flex justify-start space-x-6 pt-4">
-            <a href="https://t.me/AmDeMu" target="_blank" 
-               class="social-link group">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="social-icon">
-                <path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                  stroke-width="1.5" d="m11.985 15.408l3.242 3.686c1.2 1.365 1.801 2.048 2.43 1.881c.628-.166.844-1.064 1.275-2.861l2.39-9.968c.665-2.768.997-4.151.259-4.834s-2.017-.175-4.575.84L5.14 8.865c-2.046.813-3.069 1.219-3.134 1.917a1 1 0 0 0 0 .214c.063.699 1.084 1.108 3.128 1.927c.925.371 1.388.557 1.72.912q.056.06.108.124c.306.38.436.88.697 1.876l.489 1.867c.253.97.38 1.456.713 1.522s.622-.336 1.201-1.141zm0 0l-.317-.33c-.362-.378-.543-.566-.543-.8s.18-.423.543-.8l3.573-3.724" />
+          <div class="flex gap-4 pt-4">
+            <a href="https://github.com/mullermad" target="_blank" rel="noopener noreferrer"
+              class="p-3 rounded-full bg-gray-800/50 border border-gray-700/50 hover:bg-teal-500/20 hover:border-teal-400/50 transition-all duration-300 hover:-translate-y-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-gray-400 hover:text-teal-400 transition-colors">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
               </svg>
             </a>
-            
-            <a href="http://www.linkedin.com/in/muluken-demis-3b3736375" target="_blank" 
-               class="social-link group">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="social-icon">
-                <path fill="currentColor" fill-rule="evenodd"
-                  d="M5 1.25a2.75 2.75 0 1 0 0 5.5a2.75 2.75 0 0 0 0-5.5M3.75 4a1.25 1.25 0 1 1 2.5 0a1.25 1.25 0 0 1-2.5 0m-1.5 4A.75.75 0 0 1 3 7.25h4a.75.75 0 0 1 .75.75v13a.75.75 0 0 1-.75.75H3a.75.75 0 0 1-.75-.75zm1.5.75v11.5h2.5V8.75zM9.25 8a.75.75 0 0 1 .75-.75h4a.75.75 0 0 1 .75.75v.434l.435-.187a7.8 7.8 0 0 1 2.358-.595C20.318 7.4 22.75 9.58 22.75 12.38V21a.75.75 0 0 1-.75.75h-4a.75.75 0 0 1-.75-.75v-7a1.25 1.25 0 0 0-2.5 0v7a.75.75 0 0 1-.75.75h-4a.75.75 0 0 1-.75-.75zm1.5.75v11.5h2.5V14a2.75 2.75 0 1 1 5.5 0v6.25h2.5v-7.87c0-1.904-1.661-3.408-3.57-3.234a6.3 6.3 0 0 0-1.904.48l-1.48.635a.75.75 0 0 1-1.046-.69V8.75z"
-                  clip-rule="evenodd" />
+            <a href="https://linkedin.com/in/muluken-demis-3b3736375" target="_blank" rel="noopener noreferrer"
+              class="p-3 rounded-full bg-gray-800/50 border border-gray-700/50 hover:bg-teal-500/20 hover:border-teal-400/50 transition-all duration-300 hover:-translate-y-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-gray-400 hover:text-teal-400 transition-colors">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.05-8.81 0-9.728h3.554v1.375c.427-.659 1.191-1.595 2.897-1.595 2.117 0 3.704 1.385 3.704 4.362v5.586zM5.337 8.855c-1.144 0-1.915-.759-1.915-1.71 0-.955.77-1.71 1.954-1.71 1.184 0 1.915.755 1.915 1.71 0 .951-.731 1.71-1.954 1.71zm1.575 11.597H3.762V9.624h3.15v10.828zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
               </svg>
             </a>
-            
-            <a href="https://github.com/mullermad" target="_blank" 
-               class="social-link group">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" class="social-icon">
-                <g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
-                  <path d="M24 4C12.954 4 4 12.954 4 24s8.954 20 20 20s20-8.954 20-20S35.046 4 24 4M0 24C0 10.745 10.745 0 24 0s24 10.745 24 24s-10.745 24-24 24S0 37.255 0 24" />
-                  <path d="M19.183 45.472q-.29-.375 0-6.674q-3.107.108-3.927-.431c-.819-.539-1.64-2.2-2.367-3.371s-2.343-1.356-2.995-1.618c-.652-.261-.816-1.328 1.797-.522c2.613.807 2.74 3.005 3.565 3.518c.825.514 2.796.29 3.689-.122s.827-1.944.987-2.551c.201-.567-.509-.693-.524-.697c-.873 0-5.454-.997-6.713-5.433c-1.258-4.437.363-7.337 1.228-8.583q.864-1.248-.153-5.314Q17.466 13.2 19.473 16c.002.01 1.756-1.043 4.527-1.043s3.755.858 4.514 1.043s1.366-3.266 6.053-2.326c-.979 1.923-1.798 4.326-1.173 5.314c.626.987 3.08 4.127 1.573 8.583q-1.509 4.455-5.929 5.433q-.506.162-.506.522c0 .36.456.399 1.114 2.086q.66 1.686.096 9.635q-1.427.363-2.22.488c-.937.147-1.955.23-2.955.261c-1 .032-1.347.029-2.73-.1a20 20 0 0 1-2.654-.424" />
-                </g>
+            <a href="https://t.me/AmDeMu" target="_blank" rel="noopener noreferrer"
+              class="p-3 rounded-full bg-gray-800/50 border border-gray-700/50 hover:bg-teal-500/20 hover:border-teal-400/50 transition-all duration-300 hover:-translate-y-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-gray-400 hover:text-teal-400 transition-colors">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.328-.373-.115l-6.869 4.332-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.461c.54-.203 1.01.122.84.951z"/>
               </svg>
             </a>
           </div>
 
-          <!-- CTA Button -->
-          <!-- Centered CTA button -->
-          <div class="pt-6 flex justify-start">
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap gap-4 pt-8">
             <button @click="downloadCv"
-              class="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full hover:from-teal-400 hover:to-cyan-400 hover:shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-1">
-              <span class="relative z-10 flex items-center gap-2">
-                Download CV
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-y-0.5">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                  <polyline points="7,10 12,15 17,10"/>
-                  <line x1="12" y1="15" x2="12" y2="3"/>
-                </svg>
-              </span>
+              class="px-8 py-3 bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-semibold rounded-lg hover:from-teal-400 hover:to-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-teal-500/25 hover:-translate-y-1">
+              Download CV
             </button>
+            <a href="#contacts"
+              class="px-8 py-3 border-2 border-teal-400 text-teal-400 font-semibold rounded-lg hover:bg-teal-400/10 transition-all duration-300 hover:-translate-y-1">
+              Get in Touch
+            </a>
           </div>
         </div>
 
@@ -92,7 +65,7 @@ function downloadCv() {
           <div class="relative group">
             <div class="absolute -inset-1 bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
             <img 
-              src="/src/assets/photo_1.jpg" 
+              src="/placeholder.svg?height=400&width=400"
               alt="Muluken Demis - Fullstack Developer"
               class="relative w-80 h-80 md:w-96 md:h-96 object-cover rounded-full border-4 border-gray-800 shadow-2xl transform group-hover:scale-105 transition-all duration-300"
             >
@@ -102,66 +75,3 @@ function downloadCv() {
     </div>
   </div>
 </template>
-
-<style scoped>
-/* Social Links */
-.social-link {
-  @apply p-3 rounded-full bg-gray-800/50 border border-gray-700/50 backdrop-blur-sm transition-all duration-300 hover:bg-gradient-to-r hover:from-teal-500/20 hover:to-cyan-500/20 hover:border-teal-400/50 hover:shadow-lg hover:shadow-teal-500/25 hover:-translate-y-1;
-}
-
-.social-icon {
-  @apply text-gray-400 transition-colors duration-300 group-hover:text-teal-400;
-}
-
-/* CTA Button */
-.cta-button {
-  @apply relative px-8 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-teal-500/25 hover:-translate-y-1 w-fit;
-}
-
-.cta-button::before {
-  content: '';
-  @apply absolute inset-0 bg-gradient-to-r from-teal-400 to-cyan-400 opacity-0 transition-opacity duration-300;
-}
-
-.cta-button:hover::before {
-  @apply opacity-100;
-}
-
-/* Image Container */
-.image-container {
-  @apply relative;
-}
-
-.image-glow {
-  @apply absolute inset-0 rounded-full bg-gradient-to-r from-teal-500/30 to-cyan-500/30 blur-2xl scale-110 opacity-50 transition-all duration-500 group-hover:opacity-75 group-hover:scale-125;
-}
-
-.profile-image {
-  @apply relative z-10 w-80 h-80 md:w-96 md:h-96 object-cover rounded-full border-4 border-gray-700/50 shadow-2xl transition-all duration-500 group-hover:border-teal-400/50 group-hover:shadow-teal-500/25;
-}
-
-/* Animation for role text */
-@keyframes slideIn {
-  from {
-    transform: translateX(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.frontend-developer {
-  display: inline-block;
-  animation: slideIn 2s ease-out forwards;
-  white-space: nowrap;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .profile-image {
-    @apply w-64 h-64;
-  }
-}
-</style>
