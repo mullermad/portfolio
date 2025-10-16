@@ -1,29 +1,30 @@
 <script setup>
-import { ref } from 'vue'
-import ProjectCard from '../ProjectCard.vue'
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
-import 'vue3-carousel/dist/carousel.css'
+import { ref } from "vue";
+import ProjectCard from "../ProjectCard.vue";
+import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
+import "vue3-carousel/dist/carousel.css";
+
+// Import your project images
 import internMentorship from "@/assets/internMentorship.jpg";
 import equb from "@/assets/equb.jpg";
 import nu_restaurant from "@/assets/nu_restaurant.jpg";
 import restaurant_management from "@/assets/restaurant_management.jpg";
 import cinema from "@/assets/cinema.jpg";
+
 const settings = ref({
   itemsToShow: 1,
-  snapAlign: 'start',
-})
+  snapAlign: "start",
+});
 
 const breakpoints = ref({
-  640: { itemsToShow: 1.5, snapAlign: 'start' },
-  768: { itemsToShow: 2, snapAlign: 'start' },
-  1024: { itemsToShow: 2.5, snapAlign: 'start' },
-  1280: { itemsToShow: 3, snapAlign: 'start' },
-})
+  640: { itemsToShow: 1.5, snapAlign: "start" },
+  768: { itemsToShow: 2, snapAlign: "start" },
+  1024: { itemsToShow: 2.5, snapAlign: "start" },
+  1280: { itemsToShow: 3, snapAlign: "start" },
+});
 
-// import your project images
-
-
-export const projects = [
+// ✅ Use `const` instead of `export const`
+const projects = [
   {
     id: 1,
     title: "Mentorship System",
@@ -70,40 +71,44 @@ export const projects = [
     link: "https://cinema-app-liart.vercel.app/",
   },
 ];
-
-
 </script>
 
 <template>
   <div class="min-h-screen flex items-center justify-center py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-       Header 
+      <!-- Header -->
       <div class="text-center mb-16">
         <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
-          My <span class="bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">Projects</span>
+          My
+          <span
+            class="bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent"
+            >Projects</span
+          >
         </h1>
-        <div class="w-24 h-1 bg-gradient-to-r from-teal-400 to-cyan-400 mx-auto rounded-full"></div>
+        <div
+          class="w-24 h-1 bg-gradient-to-r from-teal-400 to-cyan-400 mx-auto rounded-full"
+        ></div>
       </div>
 
-       Carousel 
+      <!-- Carousel -->
       <div class="relative">
-        <carousel 
-          :wrapAround="true" 
-          :autoplay="0" 
-          :transition="500" 
-          :breakpoints="breakpoints" 
+        <Carousel
+          :wrapAround="true"
+          :autoplay="0"
+          :transition="500"
+          :breakpoints="breakpoints"
           :settings="settings"
           class="projects-carousel"
         >
-          <slide v-for="project in projects" :key="project.id" class="px-3 py-4">
+          <Slide v-for="project in projects" :key="project.id" class="px-3 py-4">
             <ProjectCard :project="project" />
-          </slide>
+          </Slide>
 
           <template #addons>
-            <navigation />
-            <pagination />
+            <Navigation />
+            <Pagination />
           </template>
-        </carousel>
+        </Carousel>
       </div>
     </div>
   </div>
