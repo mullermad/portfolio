@@ -27,18 +27,16 @@ const navItems = [
 
 <template>
   <div>
-     Added navbar component 
     <Disclosure as="nav" class="bg-gray-900/95 backdrop-blur-md text-white fixed top-0 left-0 right-0 z-50 border-b border-gray-700/30" v-slot="{ open }">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
-           Logo 
+            
           <div class="flex items-center">
             <a @click="handleClick('home')" :href="`#${props.id1}`" class="text-2xl font-bold bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent cursor-pointer hover:from-teal-300 hover:to-cyan-300 transition-all duration-300">
               Mulu<span class="text-teal-400">ken</span>
             </a>
           </div>
           
-           Desktop Navigation 
           <div class="hidden md:block">
             <nav class="flex gap-8 font-medium">
               <a v-for="item in navItems" :key="item.id"
@@ -52,7 +50,6 @@ const navItems = [
             </nav>
           </div>
 
-           Mobile Menu Button 
           <div class="md:hidden">
             <DisclosureButton class="relative inline-flex items-center justify-center rounded-lg p-2 text-gray-300 hover:bg-gray-800 hover:text-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-all duration-300">
               <span class="sr-only">Open main menu</span>
