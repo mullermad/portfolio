@@ -32,7 +32,6 @@ const projects = [
     description:
       "A structured platform connecting mentors and mentees to support career and personal growth through guided mentorship programs.",
     image: internMentorship,
-    tags: ["React", "Node.js", "Express", "MongoDB"],
     link: "https://mentorship-sooty.vercel.app/",
   },
   {
@@ -41,7 +40,6 @@ const projects = [
     description:
       "A digital version of the traditional Ethiopian Equb, enabling members to manage savings and lending securely and transparently online.",
     image: equb,
-    tags: ["Vue.js", "Firebase", "Tailwind CSS"],
     link: "https://github.com/mullermad",
   },
   {
@@ -50,7 +48,7 @@ const projects = [
     description:
       "A modern, elegant restaurant website showcasing menu items, reservations, and events with smooth design and responsive layout.",
     image: nu_restaurant,
-    tags: ["Nuxt3", "Tailwind CSS", "UI/UX Design"],
+    
     link: "https://www.nu-restaurant.com/",
   },
   {
@@ -59,7 +57,6 @@ const projects = [
     description:
       "A comprehensive restaurant management system featuring waiter ordering, kitchen display, and inventory tracking to improve efficiency.",
     image: restaurant_management,
-    tags: ["React", "Express", "MySQL", "Socket.io"],
     link: "https://pos.nu-restaurant.com/",
   },
   {
@@ -68,7 +65,6 @@ const projects = [
     description:
       "A cinema booking app for browsing movies, checking schedules, and purchasing tickets online, inspired by platforms like Fandango.",
     image: cinema,
-    tags: ["Nuxt3", "Tailwind CSS", "Firebase"],
     link: "https://cinema-app-liart.vercel.app/",
   },
 ];
