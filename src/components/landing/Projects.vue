@@ -21,7 +21,7 @@ const projects = [
     id: 1,
     title: 'E-Commerce Platform',
     description: 'Full-stack e-commerce solution with Vue.js frontend and Node.js backend',
-    image: '/placeholder.jpg',
+    image: '/placeholder.svg',
     tags: ['Vue.js', 'Node.js', 'MongoDB', 'Stripe'],
     link: '#'
   },
@@ -29,7 +29,7 @@ const projects = [
     id: 2,
     title: 'Task Management App',
     description: 'Real-time collaborative task management application',
-    image: '/placeholder.jpg',
+    image: '/placeholder.svg',
     tags: ['React', 'Firebase', 'Tailwind CSS'],
     link: '#'
   },
@@ -37,7 +37,7 @@ const projects = [
     id: 3,
     title: 'Portfolio Website',
     description: 'Modern portfolio website with smooth animations and responsive design',
-    image: '/placeholder.jpg',
+    image: '/placeholder.svg',
     tags: ['Nuxt3', 'Tailwind CSS', 'Animation'],
     link: '#'
   },
@@ -45,7 +45,7 @@ const projects = [
     id: 4,
     title: 'Weather Dashboard',
     description: 'Real-time weather application with location-based forecasts',
-    image: '/placeholder.jpg',
+    image: '/placeholder.svg',
     tags: ['Vue.js', 'API Integration', 'Charts'],
     link: '#'
   },
@@ -55,7 +55,7 @@ const projects = [
 <template>
   <div class="min-h-screen flex items-center justify-center py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <!-- Header -->
+       Header 
       <div class="text-center mb-16">
         <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
           My <span class="bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">Projects</span>
@@ -63,7 +63,7 @@ const projects = [
         <div class="w-24 h-1 bg-gradient-to-r from-teal-400 to-cyan-400 mx-auto rounded-full"></div>
       </div>
 
-      <!-- Carousel -->
+       Carousel 
       <div class="relative">
         <carousel 
           :wrapAround="true" 
