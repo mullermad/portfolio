@@ -21,7 +21,7 @@ const projects = [
     id: 1,
     title: 'E-Commerce Platform',
     description: 'Full-stack e-commerce solution with Vue.js frontend and Node.js backend',
-    image: '/placeholder.svg?height=300&width=400',
+    image: '/placeholder.jpg',
     tags: ['Vue.js', 'Node.js', 'MongoDB', 'Stripe'],
     link: '#'
   },
@@ -29,7 +29,7 @@ const projects = [
     id: 2,
     title: 'Task Management App',
     description: 'Real-time collaborative task management application',
-    image: '/placeholder.svg?height=300&width=400',
+    image: '/placeholder.jpg',
     tags: ['React', 'Firebase', 'Tailwind CSS'],
     link: '#'
   },
@@ -37,7 +37,7 @@ const projects = [
     id: 3,
     title: 'Portfolio Website',
     description: 'Modern portfolio website with smooth animations and responsive design',
-    image: '/placeholder.svg?height=300&width=400',
+    image: '/placeholder.jpg',
     tags: ['Nuxt3', 'Tailwind CSS', 'Animation'],
     link: '#'
   },
@@ -45,7 +45,7 @@ const projects = [
     id: 4,
     title: 'Weather Dashboard',
     description: 'Real-time weather application with location-based forecasts',
-    image: '/placeholder.svg?height=300&width=400',
+    image: '/placeholder.jpg',
     tags: ['Vue.js', 'API Integration', 'Charts'],
     link: '#'
   },
