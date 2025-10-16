@@ -65,7 +65,7 @@ function downloadCv() {
           <div class="relative group">
             <div class="absolute -inset-1 bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
             <img 
-              src="/placeholder-user.jpg"
+              src="/src/assets/photo_1.jpg"
               alt="Muluken Demis - Fullstack Developer"
               class="relative w-80 h-80 md:w-96 md:h-96 object-cover rounded-full border-4 border-gray-800 shadow-2xl transform group-hover:scale-105 transition-all duration-300"
             >
