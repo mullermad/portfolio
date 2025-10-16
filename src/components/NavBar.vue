@@ -24,7 +24,7 @@ const handleClick = (value) => {
   >
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="relative flex h-16 items-center justify-between">
-        <!-- Logo -->
+     
         <div class="flex items-center">
           <a
             @click="handleClick('home')"
@@ -35,7 +35,6 @@ const handleClick = (value) => {
           </a>
         </div>
 
-        <!-- Desktop Navigation -->
         <div class="hidden md:block">
           <nav class="flex flex-row gap-8 font-medium">
             <a
@@ -78,7 +77,6 @@ const handleClick = (value) => {
           </nav>
         </div>
 
-        <!-- Mobile Menu Button -->
         <div class="md:hidden">
           <DisclosureButton
             class="relative inline-flex items-center justify-center rounded-lg p-2 text-gray-300 hover:bg-gray-800 hover:text-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-all duration-300"
@@ -109,7 +107,6 @@ const handleClick = (value) => {
       </div>
     </div>
 
-    <!-- Mobile Navigation Panel -->
     <DisclosurePanel class="md:hidden bg-gray-900/98 backdrop-blur-sm border-t border-gray-700/50">
       <div class="px-4 py-3 space-y-2">
         <a
