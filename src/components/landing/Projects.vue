@@ -5,11 +5,12 @@ import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 
 // Import your project images
-import internMentorship from "@/assets/internMentorship.jpg";
-import equb from "@/assets/equb.jpg";
-import nu_restaurant from "@/assets/nu_restaurant.jpg";
-import restaurant_management from "@/assets/restaurant_management.jpg";
-import cinema from "@/assets/cinema.jpg";
+  import internMentorship from "../../assets/internMentorship.jpg";
+
+import equb from "../../assets/equb.jpg";
+import nu_restaurant from "../../assets/nu_restaurant.jpg";
+import restaurant_management from "../../assets/restaurant_management.jpg";
+import cinema from "../../assets/cinema.jpg";
 
 const settings = ref({
   itemsToShow: 1,
