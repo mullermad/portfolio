@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      type="/src/assets/photo_1.jpg"
-      href="/src/assets/photo_1.jpg"
-    />
+    <link rel="icon" type="image/jpeg" href="/photo_1.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>muluken</title>
+    <meta
+      name="description"
+      content="Muluken Demis — Fullstack developer building modern web applications with Vue, Nuxt, React, Node.js and Go."
+    />
+    <title>Muluken Demis | Fullstack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Apply saved theme before first paint to avoid a flash of wrong theme.
+      (function () {
+        var theme = localStorage.getItem("theme") || "dark";
+        document.documentElement.classList.toggle("dark", theme === "dark");
+      })();
+    </script>
   </head>
   <body>
     <div id="app"></div>

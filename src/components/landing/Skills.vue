@@ -1,84 +1,130 @@
+<script setup>
+const skillGroups = [
+  {
+    title: "Backend",
+    icon: "ph:cpu-bold",
+    skills: [
+      { name: "Node.js", icon: "logos:nodejs-icon" },
+      { name: "NestJS", icon: "logos:nestjs" },
+      { name: "Express", icon: "simple-icons:express" },
+      { name: "Go (Golang)", icon: "logos:go" },
+      { name: "Python", icon: "logos:python" },
+      { name: "Django REST", icon: "logos:django-icon" },
+    ],
+  },
+  {
+    title: "Frontend",
+    icon: "ph:paint-brush-broad-bold",
+    skills: [
+      { name: "React", icon: "logos:react" },
+      { name: "Next.js", icon: "logos:nextjs-icon" },
+      { name: "Vue.js", icon: "logos:vue" },
+      { name: "Nuxt 3", icon: "logos:nuxt-icon" },
+      { name: "JavaScript", icon: "logos:javascript" },
+      { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" },
+    ],
+  },
+  {
+    title: "ERP & Business Platforms",
+    icon: "ph:buildings-bold",
+    skills: [
+      { name: "ERPNext", icon: "simple-icons:frappe" },
+      { name: "Frappe Framework", icon: "simple-icons:frappe" },
+      { name: "Odoo", icon: "simple-icons:odoo" },
+      { name: "Custom Modules", icon: "ph:puzzle-piece-bold" },
+      { name: "API Integrations", icon: "ph:plugs-connected-bold" },
+      { name: "Workflow Automation", icon: "ph:flow-arrow-bold" },
+    ],
+  },
+  {
+    title: "Databases & Tools",
+    icon: "ph:wrench-bold",
+    skills: [
+      { name: "PostgreSQL", icon: "logos:postgresql" },
+      { name: "MongoDB", icon: "logos:mongodb-icon" },
+      { name: "Docker", icon: "logos:docker-icon" },
+      { name: "Git & GitHub", icon: "logos:git-icon" },
+      { name: "Linux", icon: "logos:linux-tux" },
+      { name: "Postman", icon: "logos:postman-icon" },
+    ],
+  },
+];
+
+const strengths = [
+  { name: "Problem Solving", icon: "ph:puzzle-piece-bold" },
+  { name: "Clean Architecture", icon: "ph:tree-structure-bold" },
+  { name: "Team Collaboration", icon: "ph:users-three-bold" },
+  { name: "Clear Communication", icon: "ph:chats-circle-bold" },
+];
+</script>
+
 <template>
-  <div class="min-h-screen flex items-center justify-center py-16 md:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+  <div class="relative overflow-hidden section-pad">
+    <div class="glow left-[-12%] top-[30%] h-96 w-96 bg-cyan-500"></div>
+
+    <div class="container-page relative">
       <!-- Header -->
-      <div class="text-center mb-16">
-        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
-          My <span class="bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">Skills</span>
-        </h1>
-        <div class="w-24 h-1 bg-gradient-to-r from-teal-400 to-cyan-400 mx-auto rounded-full"></div>
+      <div class="relative mb-20 text-center" v-reveal>
+        <span class="ghost-word" aria-hidden="true">SKILLS</span>
+        <span class="section-kicker">
+          <Icon icon="ph:lightning-bold" class="h-3.5 w-3.5" />
+          My Skills
+        </span>
+        <h2 class="section-title">
+          Technologies I <span class="text-gradient">work with</span>
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-body sm:text-lg">
+          A full toolbox for shipping complete, production-grade products — from
+          backend services to polished interfaces and business systems.
+        </p>
       </div>
 
-      <!-- Skills Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-        
-        <!-- Technical Skills -->
-        <div class="space-y-8">
-          <div>
-            <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Technical Skills</h2>
-            <div class="w-32 h-1 bg-gradient-to-r from-teal-400 to-cyan-400"></div>
+      <!-- Skill groups -->
+      <div class="grid gap-6 md:grid-cols-2">
+        <div
+          v-for="(group, gi) in skillGroups"
+          :key="group.title"
+          class="card-base p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/40 hover:shadow-xl hover:shadow-teal-500/10"
+          v-reveal="(gi % 2) * 130"
+        >
+          <div class="mb-6 flex items-center gap-3">
+            <span
+              class="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500/15 to-cyan-500/15 text-accent"
+            >
+              <Icon :icon="group.icon" class="h-6 w-6" />
+            </span>
+            <h3 class="font-display text-xl font-bold text-heading">{{ group.title }}</h3>
           </div>
 
-          <div class="space-y-6">
-            <div v-for="skill in technicalSkills" :key="skill.name" class="space-y-3">
-              <div class="flex items-center justify-between">
-                <h3 class="text-white font-semibold">{{ skill.name }}</h3>
-                <span class="text-teal-400 font-medium">{{ skill.level }}%</span>
-              </div>
-              <div class="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
-                <div 
-                  class="bg-gradient-to-r from-teal-400 to-cyan-400 h-2 rounded-full transition-all duration-1000 ease-out"
-                  :style="{ width: skill.level + '%' }">
-                </div>
-              </div>
-            </div>
-          </div>
+          <ul class="grid grid-cols-2 gap-3">
+            <li
+              v-for="skill in group.skills"
+              :key="skill.name"
+              class="group flex items-center gap-2.5 rounded-xl border border-edge bg-surface/60 px-3.5 py-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:bg-accent/5"
+            >
+              <Icon
+                :icon="skill.icon"
+                class="h-5 w-5 shrink-0 transition-transform duration-300 group-hover:scale-125"
+              />
+              <span class="text-sm font-medium text-body group-hover:text-heading">
+                {{ skill.name }}
+              </span>
+            </li>
+          </ul>
         </div>
+      </div>
 
-        <!-- Soft Skills -->
-        <div class="space-y-8">
-          <div>
-            <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Professional Skills</h2>
-            <div class="w-32 h-1 bg-gradient-to-r from-teal-400 to-cyan-400"></div>
-          </div>
-
-          <div class="space-y-8">
-            <div class="grid grid-cols-2 gap-8 justify-items-center">
-              <div v-for="skill in softSkills" :key="skill.name" class="flex flex-col items-center space-y-3">
-                <div class="relative flex items-center justify-center w-24 h-24 md:w-32 md:h-32">
-                  <div 
-                    class="absolute inset-0 rounded-full"
-                    :style="{ background: `conic-gradient(#14b8a6 0% ${skill.level}%, #374151 ${skill.level}% 100%)` }">
-                  </div>
-                  <div class="absolute inset-2 bg-gray-900 rounded-full flex items-center justify-center">
-                    <span class="text-white font-bold text-sm md:text-lg">{{ skill.level }}%</span>
-                  </div>
-                </div>
-                <p class="text-white text-sm md:text-base font-medium text-center">{{ skill.name }}</p>
-              </div>
-            </div>
-          </div>
+      <!-- Strengths -->
+      <div class="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4" v-reveal="200">
+        <div
+          v-for="strength in strengths"
+          :key="strength.name"
+          class="card-base flex items-center gap-3 px-5 py-4 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40"
+        >
+          <Icon :icon="strength.icon" class="h-6 w-6 shrink-0 text-accent" />
+          <span class="text-sm font-semibold text-heading">{{ strength.name }}</span>
         </div>
       </div>
     </div>
   </div>
 </template>
-
-<script setup>
-const technicalSkills = [
-  { name: 'React', level: 90 },
-   { name: 'Nextjsj', level: 90 },
-  { name: 'Vue.js', level: 94 },
-  { name: 'Nuxt3', level: 97 },
-  { name: 'Django(DRF)', level: 75 },
-  { name: 'JavaScript', level: 85 },
-  { name: 'Node.js & Express', level: 90 },
-  { name: 'Tailwind CSS', level: 90 },
-]
-
-const softSkills = [
-  { name: 'Communication', level: 89 },
-  { name: 'Teamwork', level: 95 },
-  { name: 'Problem Solving', level: 94 },
-]
-</script>

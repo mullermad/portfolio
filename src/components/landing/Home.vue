@@ -1,82 +1,308 @@
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from "vue";
+
+const roles = [
+  "Backend Engineer — Node.js · NestJS · Go",
+  "Fullstack Developer",
+  "Python & Django REST Developer",
+  "React / Next.js · Vue / Nuxt",
+  "ERPNext & Odoo Developer",
+];
+
+const typedText = ref("");
+let roleIndex = 0;
+let charIndex = 0;
+let deleting = false;
+let typingTimer = null;
+
+// Simple type / pause / delete loop over the roles list.
+const tick = () => {
+  const current = roles[roleIndex];
+  let delay = deleting ? 30 : 65;
+
+  if (!deleting) {
+    charIndex++;
+    if (charIndex === current.length) {
+      deleting = true;
+      delay = 2000;
+    }
+  } else {
+    charIndex--;
+    if (charIndex === 0) {
+      deleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+      delay = 350;
+    }
+  }
+  typedText.value = current.slice(0, charIndex);
+  typingTimer = setTimeout(tick, delay);
+};
+
+// Terminal lines appear one by one, then the whole loop restarts.
+const termLines = [
+  { type: "cmd", text: "whoami" },
+  { type: "out", text: "muluken-demis · fullstack developer" },
+  { type: "cmd", text: "cat focus.txt" },
+  { type: "out", text: "Backend Engineering — NestJS · Node.js · Go · Python" },
+  { type: "cmd", text: "ls skills/" },
+  { type: "out", text: "backend/   frontend/   erp/   devops/" },
+  { type: "cmd", text: "ls skills/erp" },
+  { type: "out", text: "erpnext   frappe   odoo" },
+  { type: "cmd", text: "./status --now" },
+  { type: "accent", text: "● open to new opportunities" },
+];
+
+const visibleLines = ref(0);
+let termTimer = null;
+
+const advanceTerminal = () => {
+  if (visibleLines.value < termLines.length) {
+    visibleLines.value++;
+    termTimer = setTimeout(advanceTerminal, visibleLines.value % 2 === 1 ? 500 : 800);
+  } else {
+    termTimer = setTimeout(() => {
+      visibleLines.value = 0;
+      advanceTerminal();
+    }, 6000);
+  }
+};
+
+onMounted(() => {
+  typingTimer = setTimeout(tick, 400);
+  termTimer = setTimeout(advanceTerminal, 800);
+});
+
+const heroEl = ref(null);
+const onSpot = (e) => {
+  const el = heroEl.value;
+  if (!el) return;
+  const r = el.getBoundingClientRect();
+  el.style.setProperty("--mx", `${e.clientX - r.left}px`);
+  el.style.setProperty("--my", `${e.clientY - r.top}px`);
+};
+onBeforeUnmount(() => {
+  clearTimeout(typingTimer);
+  clearTimeout(termTimer);
+});
+
+const socials = [
+  { icon: "mdi:github", href: "https://github.com/mullermad", label: "GitHub" },
+  { icon: "mdi:linkedin", href: "https://linkedin.com/in/muluken-demis-3b3736375", label: "LinkedIn" },
+  { icon: "mdi:telegram", href: "https://t.me/AmDeMu", label: "Telegram" },
+];
+
+const marqueeTech = [
+  { name: "Node.js", icon: "logos:nodejs-icon" },
+  { name: "NestJS", icon: "logos:nestjs" },
+  { name: "Go", icon: "logos:go" },
+  { name: "Python", icon: "logos:python" },
+  { name: "Django", icon: "logos:django-icon" },
+  { name: "PostgreSQL", icon: "logos:postgresql" },
+  { name: "React", icon: "logos:react" },
+  { name: "Next.js", icon: "logos:nextjs-icon" },
+  { name: "Vue.js", icon: "logos:vue" },
+  { name: "Nuxt", icon: "logos:nuxt-icon" },
+  { name: "Odoo", icon: "simple-icons:odoo" },
+  { name: "Frappe / ERPNext", icon: "simple-icons:frappe" },
+  { name: "Docker", icon: "logos:docker-icon" },
+];
+
 function downloadCv() {
-  window.open('/cv/Muluken_Demis_Resume (5) - Copy.pdf', '_blank');
+  window.open("/cv/Muluken_Demis_Resume (5) - Copy.pdf", "_blank");
 }
 </script>
 
 <template>
-  <div class="min-h-screen flex items-center justify-center py-16 md:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
-      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-        
-        <!-- Content Section -->
-        <div class="w-full lg:w-1/2 space-y-8">
-          <div class="space-y-4">
-            <h1 class="text-5xl md:text-7xl font-bold leading-tight text-white">
-              Hi, I'm <span class="bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">Muluken</span>
-            </h1>
-            <h2 class="text-2xl md:text-3xl font-semibold text-gray-300">
-              Fullstack Developer 
-            </h2>
-          </div>
-          
-        
-           <p class="text-lg text-gray-400 leading-relaxed max-w-xl">
-              "Hello! I'm <span class="text-teal-400 font-semibold">Muluken Demis</span>, a dedicated
-              full-stack developer with a strong focus on creating seamless digital experiences. With expertise in
-             <span class="text-cyan-400">React</span>, <span class="text-cyan-400">Next.js</span>,
-              <span class="text-cyan-400">Vue.js</span>, <span class="text-cyan-400">Nuxt3</span>,
-             , <span class="text-cyan-400">Node.js with Express</span>,  <span class="text-cyan-400">Django(DRF)</span>,and <span class="text-cyan-400">Go</span>, I thrive at the intersection of clean, intuitive front-end design and
-              efficient, scalable back-end development."
-            </p>
+  <div
+    ref="heroEl"
+    class="relative flex min-h-screen flex-col justify-center overflow-hidden pt-16"
+    @mousemove="onSpot"
+  >
+    <!-- Background decoration -->
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    <div class="aurora aurora-3"></div>
+    <div
+      class="pointer-events-none absolute inset-0 bg-[linear-gradient(rgb(var(--c-edge)/0.35)_1px,transparent_1px),linear-gradient(90deg,rgb(var(--c-edge)/0.35)_1px,transparent_1px)] bg-[size:56px_56px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,black_30%,transparent_100%)]"
+    ></div>
+    <div class="spotlight" aria-hidden="true"></div>
 
-          <!-- Social Links -->
-          <div class="flex gap-4 pt-4">
-            <a href="https://github.com/mullermad" target="_blank" rel="noopener noreferrer"
-              class="p-3 rounded-full bg-gray-800/50 border border-gray-700/50 hover:bg-teal-500/20 hover:border-teal-400/50 transition-all duration-300 hover:-translate-y-1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-gray-400 hover:text-teal-400 transition-colors">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-            </a>
-            <a href="https://linkedin.com/in/muluken-demis-3b3736375" target="_blank" rel="noopener noreferrer"
-              class="p-3 rounded-full bg-gray-800/50 border border-gray-700/50 hover:bg-teal-500/20 hover:border-teal-400/50 transition-all duration-300 hover:-translate-y-1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-gray-400 hover:text-teal-400 transition-colors">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.05-8.81 0-9.728h3.554v1.375c.427-.659 1.191-1.595 2.897-1.595 2.117 0 3.704 1.385 3.704 4.362v5.586zM5.337 8.855c-1.144 0-1.915-.759-1.915-1.71 0-.955.77-1.71 1.954-1.71 1.184 0 1.915.755 1.915 1.71 0 .951-.731 1.71-1.954 1.71zm1.575 11.597H3.762V9.624h3.15v10.828zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
-              </svg>
-            </a>
-            <a href="https://t.me/AmDeMu" target="_blank" rel="noopener noreferrer"
-              class="p-3 rounded-full bg-gray-800/50 border border-gray-700/50 hover:bg-teal-500/20 hover:border-teal-400/50 transition-all duration-300 hover:-translate-y-1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-gray-400 hover:text-teal-400 transition-colors">
-                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.328-.373-.115l-6.869 4.332-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.461c.54-.203 1.01.122.84.951z"/>
-              </svg>
-            </a>
-          </div>
+    <div class="container-page relative flex-1 py-16 md:py-20">
+      <div class="flex h-full flex-col items-center gap-14 lg:flex-row lg:gap-16">
+        <!-- Text -->
+        <div class="w-full space-y-7 text-center lg:w-[55%] lg:text-left">
+          <span
+            v-reveal
+            class="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent"
+          >
+            <span class="relative flex h-2 w-2">
+              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
+              <span class="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
+            </span>
+            Available for new opportunities
+          </span>
 
-          <!-- CTA Buttons -->
-          <div class="flex flex-wrap gap-4 pt-8">
-            <button @click="downloadCv"
-              class="px-8 py-3 bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-semibold rounded-lg hover:from-teal-400 hover:to-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-teal-500/25 hover:-translate-y-1">
+          <h1
+            v-reveal="100"
+            class="font-display text-4xl font-extrabold leading-tight text-heading sm:text-5xl md:text-6xl"
+          >
+            Hi, I'm <span class="text-gradient-animated">Muluken Demis</span>
+          </h1>
+
+          <p
+            v-reveal="200"
+            class="min-h-[3.5rem] font-mono text-base text-body sm:min-h-[2rem] sm:text-lg md:text-xl"
+          >
+            <span class="caret text-heading">{{ typedText }}</span>
+          </p>
+
+          <p
+            v-reveal="300"
+            class="mx-auto max-w-xl text-base leading-relaxed text-body sm:text-lg lg:mx-0"
+          >
+            Fullstack developer with a <span class="font-semibold text-accent">backend-first mindset</span> —
+            I architect and ship robust APIs, services and data layers with
+            <span class="font-semibold text-accent">NestJS</span>,
+            <span class="font-semibold text-accent">Node.js</span>,
+            <span class="font-semibold text-accent">Go</span> and
+            <span class="font-semibold text-accent">Python</span>, and pair them with
+            polished frontends in React, Next.js, Vue and Nuxt. I also build and customize
+            <span class="font-semibold text-accent">ERPNext & Odoo</span> business systems.
+          </p>
+
+          <!-- CTAs -->
+          <div
+            v-reveal="400"
+            class="flex flex-wrap items-center justify-center gap-4 lg:justify-start"
+          >
+            <a href="#projects" class="btn-primary">
+              <Icon icon="ph:rocket-launch-bold" class="h-5 w-5" />
+              View My Work
+            </a>
+            <button type="button" class="btn-ghost" @click="downloadCv">
+              <Icon icon="ph:download-simple-bold" class="h-5 w-5" />
               Download CV
             </button>
-            <a href="#contacts"
-              class="px-8 py-3 border-2 border-teal-400 text-teal-400 font-semibold rounded-lg hover:bg-teal-400/10 transition-all duration-300 hover:-translate-y-1">
-              Get in Touch
+          </div>
+
+          <!-- Socials -->
+          <div
+            v-reveal="500"
+            class="flex items-center justify-center gap-3 pt-2 lg:justify-start"
+          >
+            <span class="hidden h-px w-12 bg-edge sm:block"></span>
+            <a
+              v-for="social in socials"
+              :key="social.icon"
+              :href="social.href"
+              :aria-label="social.label"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex h-11 w-11 items-center justify-center rounded-xl border border-edge bg-card/60 text-body transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:text-accent hover:shadow-lg hover:shadow-teal-500/10"
+            >
+              <Icon :icon="social.icon" class="h-5 w-5" />
             </a>
           </div>
         </div>
 
-        <!-- Profile Image Section -->
-        <div class="w-full lg:w-1/2 flex justify-center">
-          <div class="relative group">
-            <div class="absolute -inset-1 bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-            <img 
-              src="/src/assets/photo_1.jpg"
-              alt="Muluken Demis - Fullstack Developer"
-              class="relative w-80 h-80 md:w-96 md:h-96 object-cover rounded-full border-4 border-gray-800 shadow-2xl transform group-hover:scale-105 transition-all duration-300"
+        <!-- Animated terminal -->
+        <div class="w-full max-w-xl lg:w-[45%]" v-reveal="150">
+          <div class="relative animate-float-slow">
+            <div
+              class="absolute -inset-3 rounded-3xl bg-gradient-to-br from-teal-400/25 to-cyan-500/25 blur-xl"
+            ></div>
+            <div
+              v-tilt="5"
+              class="card-base relative overflow-hidden font-mono text-[13px] shadow-2xl sm:text-sm"
             >
+              <!-- Window chrome -->
+              <div class="flex items-center gap-2 border-b border-edge bg-surface/80 px-5 py-3.5">
+                <span class="h-3 w-3 rounded-full bg-red-400"></span>
+                <span class="h-3 w-3 rounded-full bg-yellow-400"></span>
+                <span class="h-3 w-3 rounded-full bg-green-400"></span>
+                <span class="ml-3 flex items-center gap-1.5 text-xs text-muted">
+                  <Icon icon="ph:terminal-window-bold" class="h-3.5 w-3.5" />
+                  muluken@dev — zsh
+                </span>
+              </div>
+              <!-- Terminal body (fixed height so the loop doesn't shift layout) -->
+              <div class="h-[19rem] space-y-1.5 overflow-hidden p-5 leading-relaxed sm:h-[21rem] sm:p-6">
+                <template v-for="(line, i) in termLines">
+                  <p v-if="i < visibleLines" :key="i" class="animate-term-in">
+                    <template v-if="line.type === 'cmd'">
+                      <span class="mr-3 font-bold text-accent">➜</span>
+                      <span class="mr-3 text-accent2">~</span>
+                      <span class="text-heading">{{ line.text }}</span>
+                    </template>
+                    <span v-else-if="line.type === 'accent'" class="font-semibold text-accent">
+                      {{ line.text }}
+                    </span>
+                    <span v-else class="text-body">{{ line.text }}</span>
+                  </p>
+                </template>
+                <p v-if="visibleLines >= termLines.length">
+                  <span class="mr-3 font-bold text-accent">➜</span>
+                  <span class="mr-3 text-accent2">~</span>
+                  <span class="caret"></span>
+                </p>
+              </div>
+            </div>
+
+            <!-- Floating badges (hidden on small screens to avoid overflow) -->
+            <div
+              class="card-base absolute -top-7 right-6 hidden animate-float items-center gap-2.5 px-4 py-2.5 shadow-xl sm:flex"
+            >
+              <Icon icon="ph:cpu-bold" class="h-6 w-6 text-accent" />
+              <div>
+                <p class="text-sm font-bold text-heading">Backend First</p>
+                <p class="text-xs text-muted">APIs · Systems · Data</p>
+              </div>
+            </div>
+            <div
+              class="card-base absolute -bottom-6 -left-3 hidden animate-float-slow items-center gap-2.5 px-4 py-2.5 shadow-xl sm:flex"
+            >
+              <Icon icon="ph:buildings-bold" class="h-6 w-6 text-accent2" />
+              <div>
+                <p class="text-sm font-bold text-heading">ERP Systems</p>
+                <p class="text-xs text-muted">ERPNext · Odoo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tech marquee -->
+    <div class="relative border-t border-edge/60 bg-surface/40 py-6 backdrop-blur-sm">
+      <div class="marquee">
+        <div class="marquee-track">
+          <div
+            v-for="(tech, i) in [...marqueeTech, ...marqueeTech]"
+            :key="`${tech.name}-${i}`"
+            class="flex items-center gap-2.5 whitespace-nowrap"
+          >
+            <Icon :icon="tech.icon" class="h-6 w-6" />
+            <span class="text-sm font-semibold text-muted">{{ tech.name }}</span>
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+.animate-term-in {
+  animation: term-in 0.3s ease both;
+}
+
+@keyframes term-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>

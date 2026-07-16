@@ -11,10 +11,10 @@ name:"uil:linkedin"
 },
 {
 id:3,
-name:"fe:github "
+name:"fe:github"
 },
 {
     id:4,
-    name:"hugeicons:gitlab "
+    name:"hugeicons:gitlab"
 }
 ]

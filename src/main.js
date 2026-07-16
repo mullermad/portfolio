@@ -1,25 +1,15 @@
-import { createApp } from 'vue'
-import {Icon} from '@iconify/vue';
-import {createPinia} from "pinia"
-import PrimeVue from 'primevue/config';
-import Aura from '@primevue/themes/aura';
-import Button from 'primevue/button';
-import './style.css'
-import App from './App.vue'
+import { createApp } from "vue";
+import { Icon } from "@iconify/vue";
+import { createPinia } from "pinia";
+import { reveal } from "./directives/reveal";
+import { tilt } from "./directives/tilt";
+import "./style.css";
+import App from "./App.vue";
+
 const app = createApp(App);
-const pinia=createPinia()
-app.component('Icon', Icon); 
-app.use(pinia)
-app.use(PrimeVue, {
-    theme: {
-        preset: Aura,
-        options: {
-            cssLayer: {
-                name: 'primevue',
-                order: 'tailwind-base, primevue, tailwind-utilities' 
-        }
-        }
-    }
- });
-app.component('Button', Button);
-app.mount('#app');
+
+app.use(createPinia());
+app.component("Icon", Icon);
+app.directive("reveal", reveal);
+app.directive("tilt", tilt);
+app.mount("#app");

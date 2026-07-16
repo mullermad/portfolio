@@ -1,25 +1,21 @@
 <script setup>
-import Footer from "../components/Footer.vue";
 import NavBar from "../components/NavBar.vue";
-const props=defineProps({
-    id1:String,
-    id2:String,
-    id3:String,
-    id4:String,
-    id5:String,
+const props = defineProps({
+    id1: String,
+    id2: String,
+    id3: String,
+    id4: String,
+    id5: String,
 })
 </script>
 <template>
     <div>
-    <NavBar 
-    id1="home" id2="about" id3="skills" 
-    id4="projects" id5="contacts"  
-    >
-  </NavBar>
-    <main> 
-    <slot></slot>
-    </main>
-    <!-- <Footer>
-    </Footer> -->
+        <NavBar
+            :id1="props.id1" :id2="props.id2" :id3="props.id3"
+            :id4="props.id4" :id5="props.id5"
+        />
+        <main>
+            <slot></slot>
+        </main>
     </div>
-    </template>
+</template>

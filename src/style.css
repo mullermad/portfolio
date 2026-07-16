@@ -1,3 +1,345 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ---------- Theme tokens (RGB triplets so Tailwind can apply alpha) ---------- */
+:root {
+  --c-bg: 247 249 252;
+  --c-surface: 255 255 255;
+  --c-card: 255 255 255;
+  --c-edge: 226 232 240;
+  --c-heading: 15 23 42;
+  --c-body: 71 85 105;
+  --c-muted: 100 116 139;
+  --c-accent: 13 148 136;
+  --c-accent-2: 8 145 178;
+  --glow-opacity: 0.14;
+}
+
+.dark {
+  --c-bg: 5 10 20;
+  --c-surface: 11 17 32;
+  --c-card: 15 23 42;
+  --c-edge: 30 41 59;
+  --c-heading: 241 245 249;
+  --c-body: 148 163 184;
+  --c-muted: 100 116 139;
+  --c-accent: 45 212 191;
+  --c-accent-2: 34 211 238;
+  --glow-opacity: 0.22;
+}
+
+/* ---------- Base ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  background-color: rgb(var(--c-bg));
+  color: rgb(var(--c-body));
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+::selection {
+  background: rgb(var(--c-accent) / 0.28);
+  color: rgb(var(--c-heading));
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--c-bg));
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--c-edge));
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--c-muted));
+}
+
+/* ---------- Scroll-reveal (used by the v-reveal directive) ---------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ---------- Reusable pieces ---------- */
+@layer components {
+  .container-page {
+    @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .card-base {
+    @apply rounded-2xl border border-edge bg-card/70 backdrop-blur-sm;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-animated {
+    background: linear-gradient(
+      90deg,
+      rgb(var(--c-accent)),
+      rgb(var(--c-accent-2)),
+      #60a5fa,
+      rgb(var(--c-accent))
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-x 6s linear infinite;
+  }
+
+  .section-pad {
+    @apply py-28 md:py-40;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 px-6 py-3 font-semibold text-white shadow-lg shadow-teal-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-teal-500/30 active:translate-y-0;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-edge bg-card/60 px-6 py-3 font-semibold text-heading transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent active:translate-y-0;
+  }
+
+  .section-kicker {
+    @apply mb-3 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 font-mono text-xs font-medium uppercase tracking-widest text-accent;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-bold text-heading sm:text-4xl md:text-5xl;
+  }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* ---------- Decorative glows ---------- */
+.glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: var(--glow-opacity);
+  pointer-events: none;
+}
+
+/* ---------- Aurora: slowly drifting color blobs ---------- */
+.aurora {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: var(--glow-opacity);
+  pointer-events: none;
+}
+
+.aurora-1 {
+  width: 34rem;
+  height: 34rem;
+  background: #14b8a6;
+  top: -12%;
+  left: -12%;
+  animation: aurora-a 14s ease-in-out infinite alternate;
+}
+
+.aurora-2 {
+  width: 30rem;
+  height: 30rem;
+  background: #06b6d4;
+  bottom: -18%;
+  right: -8%;
+  animation: aurora-b 18s ease-in-out infinite alternate;
+}
+
+.aurora-3 {
+  width: 22rem;
+  height: 22rem;
+  background: #6366f1;
+  top: 32%;
+  left: 58%;
+  animation: aurora-c 16s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-a {
+  to {
+    transform: translate(70px, 50px) scale(1.18);
+  }
+}
+
+@keyframes aurora-b {
+  to {
+    transform: translate(-60px, -45px) scale(1.12);
+  }
+}
+
+@keyframes aurora-c {
+  to {
+    transform: translate(-80px, 60px) scale(0.9);
+  }
+}
+
+/* ---------- Mouse spotlight ---------- */
+.spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    620px circle at var(--mx, 50%) var(--my, 35%),
+    rgb(var(--c-accent) / 0.09),
+    transparent 65%
+  );
+}
+
+/* ---------- Ghost word behind section titles ---------- */
+.ghost-word {
+  position: absolute;
+  inset-inline: 0;
+  top: -1.5rem;
+  pointer-events: none;
+  user-select: none;
+  text-align: center;
+  font-family: "Sora", sans-serif;
+  font-weight: 800;
+  line-height: 1;
+  font-size: clamp(4rem, 14vw, 11rem);
+  letter-spacing: 0.05em;
+  color: rgb(var(--c-heading) / 0.04);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora {
+    animation: none;
+  }
+}
+
+/* ---------- Animated gradient ---------- */
+@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+/* ---------- Logo marquee ---------- */
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+  mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 3.5rem;
+  animation: marquee 32s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- Card shine sweep on hover ---------- */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgb(255 255 255 / 0.18) 50%,
+    transparent 60%
+  );
+  transform: translateX(-110%);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+}
+
+.shine:hover::after {
+  transform: translateX(110%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .text-gradient-animated {
+    animation: none;
+  }
+}
+
+/* ---------- Typing caret ---------- */
+.caret::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  background: rgb(var(--c-accent));
+  animation: caret-blink 1s steps(2) infinite;
+}
+
+@keyframes caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}

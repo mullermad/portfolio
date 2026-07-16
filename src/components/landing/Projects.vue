@@ -1,148 +1,114 @@
 <script setup>
-import { ref } from "vue";
 import ProjectCard from "../ProjectCard.vue";
-import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
-import "vue3-carousel/dist/carousel.css";
 
-// Import your project images
 import equb from "@/assets/equbsystem.png";
-import nu_restaurant from "@/assets/nu_restaurant.png";
-import restaurant_management from "@/assets/ImageNu2.png";
+import nuRestaurant from "@/assets/nu_restaurant.png";
+import restaurantPos from "@/assets/ImageNu2.png";
 import internMentorship from "@/assets/internmentorship.png";
 import cinema from "@/assets/cinema.png";
 
-
-const settings = ref({
-  itemsToShow: 1,
-  snapAlign: "start",
-});
-
-const breakpoints = ref({
-  640: { itemsToShow: 1.5, snapAlign: "start" },
-  768: { itemsToShow: 2, snapAlign: "start" },
-  1024: { itemsToShow: 2.5, snapAlign: "start" },
-  1280: { itemsToShow: 3, snapAlign: "start" },
-});
-
-// ✅ Use `const` instead of `export const`
 const projects = [
   {
     id: 1,
-    title: "Mentorship System",
+    title: "Mentorship Platform",
     description:
       "A structured platform connecting mentors and mentees to support career and personal growth through guided mentorship programs.",
     image: internMentorship,
     link: "https://mentorship-sooty.vercel.app/",
+    github: "https://github.com/mullermad",
   },
   {
     id: 2,
     title: "Digital Equb System",
     description:
-      "A digital version of the traditional Ethiopian Equb, enabling members to manage savings and lending securely and transparently online.",
+      "A digital version of the traditional Ethiopian Equb — members manage rotating savings and lending securely and transparently online.",
     image: equb,
     link: "https://github.com/mullermad",
+    github: "https://github.com/mullermad",
   },
   {
     id: 3,
     title: "Nu Restaurant Website",
     description:
-      "A modern, elegant restaurant website showcasing menu items, reservations, and events with smooth design and responsive layout.",
-    image: nu_restaurant,
-    
+      "A modern, elegant restaurant website showcasing menu items, reservations and events with a smooth, fully responsive design.",
+    image: nuRestaurant,
     link: "https://www.nu-restaurant.com/",
   },
   {
     id: 4,
     title: "Restaurant POS System",
     description:
-      "A comprehensive restaurant management system featuring waiter ordering, kitchen display, and inventory tracking to improve efficiency.",
-    image: restaurant_management,
+      "A comprehensive restaurant management system with waiter ordering, kitchen display and inventory tracking to boost efficiency.",
+    image: restaurantPos,
     link: "https://pos.nu-restaurant.com/",
   },
   {
     id: 5,
-    title: "Cinema Ticket Booking App",
+    title: "Cinema Ticket Booking",
     description:
-      "A cinema booking app for browsing movies, checking schedules, and purchasing tickets online, inspired by platforms like Fandango.",
+      "A cinema booking app for browsing movies, checking schedules and purchasing tickets online — inspired by platforms like Fandango.",
     image: cinema,
     link: "https://cinema-app-liart.vercel.app/",
+    github: "https://github.com/mullermad",
   },
 ];
 </script>
 
 <template>
-  <div class="min-h-screen flex items-center justify-center py-16 md:py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+  <div class="relative overflow-hidden section-pad">
+    <div class="glow right-[-8%] top-[15%] h-96 w-96 bg-teal-500"></div>
+
+    <div class="container-page relative">
       <!-- Header -->
-      <div class="text-center mb-16">
-        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
-          My
-          <span
-            class="bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent"
-            >Projects</span
-          >
-        </h1>
-        <div
-          class="w-24 h-1 bg-gradient-to-r from-teal-400 to-cyan-400 mx-auto rounded-full"
-        ></div>
+      <div class="relative mb-20 text-center" v-reveal>
+        <span class="ghost-word" aria-hidden="true">WORK</span>
+        <span class="section-kicker">
+          <Icon icon="ph:briefcase-bold" class="h-3.5 w-3.5" />
+          Portfolio
+        </span>
+        <h2 class="section-title">
+          Featured <span class="text-gradient">Projects</span>
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-body sm:text-lg">
+          A selection of products I've designed and built — hover a card to open the
+          live demo or the source code.
+        </p>
       </div>
 
-      <!-- Carousel -->
-      <div class="relative">
-        <Carousel
-          :wrapAround="true"
-          :autoplay="0"
-          :transition="500"
-          :breakpoints="breakpoints"
-          :settings="settings"
-          class="projects-carousel"
-        >
-          <Slide v-for="project in projects" :key="project.id" class="px-3 py-4">
-            <ProjectCard :project="project" />
-          </Slide>
+      <!-- Grid -->
+      <div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+        <div v-for="(project, i) in projects" :key="project.id" v-reveal="(i % 3) * 120">
+          <ProjectCard :project="project" />
+        </div>
 
-          <template #addons>
-            <Navigation />
-            <Pagination />
-          </template>
-        </Carousel>
+        <!-- "More on GitHub" card -->
+        <a
+          href="https://github.com/mullermad"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="card-base group flex min-h-[20rem] flex-col items-center justify-center gap-4 border-dashed p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-accent/50 hover:shadow-2xl hover:shadow-teal-500/10"
+          v-reveal="240"
+        >
+          <span
+            class="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/15 to-cyan-500/15 text-accent transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+          >
+            <Icon icon="mdi:github" class="h-8 w-8" />
+          </span>
+          <div>
+            <h3 class="font-display text-lg font-bold text-heading">Want to see more?</h3>
+            <p class="mt-1 text-sm text-body">
+              Explore more projects, experiments and open-source work on my GitHub.
+            </p>
+          </div>
+          <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+            Visit GitHub
+            <Icon
+              icon="ph:arrow-right-bold"
+              class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </span>
+        </a>
       </div>
     </div>
   </div>
 </template>
-
-<style scoped>
-:deep(.carousel__prev),
-:deep(.carousel__next) {
-  @apply bg-gray-800/80 hover:bg-gray-700 border border-gray-600 hover:border-teal-400;
-  @apply rounded-full w-12 h-12 transition-all duration-300;
-  @apply backdrop-blur-sm shadow-lg;
-}
-
-:deep(.carousel__icon) {
-  @apply w-6 h-6 text-white;
-  fill: currentColor;
-}
-
-:deep(.carousel__prev:hover .carousel__icon),
-:deep(.carousel__next:hover .carousel__icon) {
-  @apply text-teal-400;
-}
-
-:deep(.carousel__pagination) {
-  @apply mt-8;
-}
-
-:deep(.carousel__pagination-button) {
-  @apply w-3 h-3 rounded-full bg-gray-600 hover:bg-teal-400;
-  @apply transition-all duration-300 mx-1;
-}
-
-:deep(.carousel__pagination-button--active) {
-  @apply bg-teal-400 scale-125;
-}
-
-:deep(.carousel__track) {
-  @apply transition-transform duration-500 ease-out;
-}
-</style>

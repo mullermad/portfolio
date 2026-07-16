@@ -1,170 +1,242 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from "vue";
 
-const firstName = ref('')
-const lastName = ref('')
-const email = ref('')
-const phone = ref('')
-const message = ref('')
-const submitted = ref(false)
+// Get a free access key at https://web3forms.com (takes ~2 min):
+// enter mulukendemis44@gmail.com, they email you the key, paste it here.
+// Messages submitted through the form then arrive straight in that inbox.
+const WEB3FORMS_ACCESS_KEY = "02135278-7214-4ab7-9c24-98482640743b";
 
-const submitForm = () => {
-  if (firstName.value && email.value && message.value) {
-    submitted.value = true
-    setTimeout(() => {
-      firstName.value = ''
-      lastName.value = ''
-      email.value = ''
-      phone.value = ''
-      message.value = ''
-      submitted.value = false
-    }, 3000)
+const name = ref("");
+const email = ref("");
+const subject = ref("");
+const message = ref("");
+const status = ref("idle"); // idle | sending | sent | error
+
+const channels = [
+  {
+    icon: "ph:envelope-simple-bold",
+    label: "Email",
+    value: "mulukendemis44@gmail.com",
+    href: "mailto:mulukendemis44@gmail.com",
+  },
+  {
+    icon: "ph:phone-bold",
+    label: "Phone",
+    value: "+251 943 438 385",
+    href: "tel:+251943438385",
+  },
+  {
+    icon: "mdi:telegram",
+    label: "Telegram",
+    value: "@AmDeMu",
+    href: "https://t.me/AmDeMu",
+  },
+  {
+    icon: "ph:map-pin-bold",
+    label: "Location",
+    value: "Addis Ababa, Ethiopia",
+    href: null,
+  },
+];
+
+const buttonLabel = computed(() => {
+  switch (status.value) {
+    case "sending":
+      return "Sending...";
+    case "sent":
+      return "Message Sent! ✓";
+    case "error":
+      return "Failed — try again or email me directly";
+    default:
+      return "Send Message";
   }
-}
+});
+
+const submitForm = async () => {
+  const mailSubject = subject.value || `Portfolio inquiry from ${name.value}`;
+
+  // Fallback while no access key is configured: open the visitor's mail app.
+  if (!WEB3FORMS_ACCESS_KEY) {
+    const body = `Hi Muluken,\n\n${message.value}\n\n— ${name.value}\n${email.value}`;
+    window.location.href = `mailto:mulukendemis44@gmail.com?subject=${encodeURIComponent(
+      mailSubject
+    )}&body=${encodeURIComponent(body)}`;
+    status.value = "sent";
+    setTimeout(() => (status.value = "idle"), 4000);
+    return;
+  }
+
+  status.value = "sending";
+  try {
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_ACCESS_KEY,
+        name: name.value,
+        email: email.value,
+        subject: mailSubject,
+        message: message.value,
+      }),
+    });
+    const data = await res.json();
+    if (data.success) {
+      status.value = "sent";
+      name.value = "";
+      email.value = "";
+      subject.value = "";
+      message.value = "";
+    } else {
+      status.value = "error";
+    }
+  } catch {
+    status.value = "error";
+  }
+  setTimeout(() => (status.value = "idle"), 5000);
+};
 </script>
 
 <template>
-  <div class="min-h-screen flex items-center justify-center py-16 md:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+  <div class="relative overflow-hidden section-pad">
+    <div class="glow bottom-[-10%] left-[-10%] h-96 w-96 bg-cyan-500"></div>
+
+    <div class="container-page relative">
       <!-- Header -->
-      <div class="text-center mb-16">
-        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
-          Get in <span class="bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">Touch</span>
-        </h1>
-        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-          Have a project in mind? Let's collaborate and create something amazing together.
+      <div class="relative mb-20 text-center" v-reveal>
+        <span class="ghost-word" aria-hidden="true">CONTACT</span>
+        <span class="section-kicker">
+          <Icon icon="ph:paper-plane-tilt-bold" class="h-3.5 w-3.5" />
+          Contact
+        </span>
+        <h2 class="section-title">
+          Let's build something <span class="text-gradient">together</span>
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-body sm:text-lg">
+          Have a project in mind, a role to fill, or just want to say hi? My inbox is
+          always open.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        
-        <!-- Contact Info -->
-        <div class="space-y-8">
-          <div>
-            <h2 class="text-3xl font-bold text-white mb-6">Contact Information</h2>
-            <p class="text-lg text-gray-400 mb-8">
-              Feel free to reach out through any of these channels. I'm always happy to discuss new projects and opportunities.
-            </p>
-          </div>
-
-          <div class="space-y-6">
-            <!-- Email -->
-            <a href="mailto:mulukendemis44@gmail.com" class="flex items-center p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-teal-400/50 hover:bg-gray-800/80 transition-all duration-300 group">
-              <div class="flex-shrink-0">
-                <div class="w-12 h-12 bg-teal-500/20 rounded-lg flex items-center justify-center group-hover:bg-teal-500/30 transition-colors">
-                  <svg class="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                  </svg>
-                </div>
-              </div>
-              <div class="ml-4">
-                <h3 class="text-lg font-semibold text-white">Email</h3>
-                <p class="text-teal-400 font-medium">mulukendemis44@gmail.com</p>
-              </div>
-            </a>
-
-            <!-- Phone -->
-            <a href="tel:+251943438385" class="flex items-center p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-teal-400/50 hover:bg-gray-800/80 transition-all duration-300 group">
-              <div class="flex-shrink-0">
-                <div class="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center group-hover:bg-cyan-500/30 transition-colors">
-                  <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                  </svg>
-                </div>
-              </div>
-              <div class="ml-4">
-                <h3 class="text-lg font-semibold text-white">Phone</h3>
-                <p class="text-cyan-400 font-medium">+251 943 438 385</p>
-              </div>
-            </a>
-
-            <!-- Location -->
-            <div class="flex items-center p-6 bg-gray-800/50 rounded-xl border border-gray-700/50">
-              <div class="flex-shrink-0">
-                <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                  <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  </svg>
-                </div>
-              </div>
-              <div class="ml-4">
-                <h3 class="text-lg font-semibold text-white">Location</h3>
-                <p class="text-blue-400 font-medium">Ethiopia</p>
-              </div>
+      <div class="grid gap-10 lg:grid-cols-5 lg:gap-14">
+        <!-- Channels -->
+        <div class="space-y-4 lg:col-span-2" v-reveal>
+          <component
+            :is="channel.href ? 'a' : 'div'"
+            v-for="(channel, i) in channels"
+            :key="channel.label"
+            :href="channel.href || undefined"
+            :target="channel.href?.startsWith('http') ? '_blank' : undefined"
+            :rel="channel.href?.startsWith('http') ? 'noopener noreferrer' : undefined"
+            class="card-base group flex items-center gap-4 p-5 transition-all duration-300"
+            :class="channel.href ? 'hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg hover:shadow-teal-500/10' : ''"
+            v-reveal="i * 100"
+          >
+            <span
+              class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500/15 to-cyan-500/15 text-accent transition-transform duration-300 group-hover:scale-110"
+            >
+              <Icon :icon="channel.icon" class="h-6 w-6" />
+            </span>
+            <div class="min-w-0">
+              <p class="text-xs font-medium uppercase tracking-wider text-muted">
+                {{ channel.label }}
+              </p>
+              <p class="truncate font-semibold text-heading">{{ channel.value }}</p>
             </div>
+            <Icon
+              v-if="channel.href"
+              icon="ph:arrow-up-right-bold"
+              class="ml-auto h-4 w-4 shrink-0 text-muted transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent"
+            />
+          </component>
+
+          <div class="card-base flex items-center gap-3 border-accent/20 bg-accent/5 p-5">
+            <span class="relative flex h-2.5 w-2.5 shrink-0">
+              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
+              <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent"></span>
+            </span>
+            <p class="text-sm text-body">
+              Currently <span class="font-semibold text-accent">available</span> for
+              freelance projects and full-time roles.
+            </p>
           </div>
         </div>
 
-        <!-- Contact Form -->
-        <div class="bg-gray-800/50 border border-gray-700/50 rounded-2xl p-8 hover:border-teal-400/30 transition-all duration-300">
-          <h3 class="text-2xl font-bold text-white mb-6">Send a Message</h3>
-          
-          <form @submit.prevent="submitForm" class="space-y-6">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Form -->
+        <div class="card-base p-7 sm:p-9 lg:col-span-3" v-reveal="150">
+          <form class="space-y-5" @submit.prevent="submitForm">
+            <div class="grid gap-5 sm:grid-cols-2">
               <div>
-                <label for="firstName" class="block text-sm font-medium text-gray-300 mb-2">First Name</label>
+                <label for="name" class="mb-2 block text-sm font-medium text-heading">
+                  Name
+                </label>
                 <input
-                  id="firstName"
-                  v-model="firstName"
+                  id="name"
+                  v-model="name"
                   type="text"
-                  class="w-full px-4 py-3 border border-gray-600 bg-gray-700/50 text-white rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors placeholder-gray-500"
-                  placeholder="Your first name"
                   required
+                  placeholder="Your name"
+                  class="w-full rounded-xl border border-edge bg-surface/70 px-4 py-3 text-heading placeholder-muted outline-none transition-all duration-300 focus:border-accent/60 focus:ring-2 focus:ring-accent/20"
                 />
               </div>
               <div>
-                <label for="lastName" class="block text-sm font-medium text-gray-300 mb-2">Last Name</label>
+                <label for="email" class="mb-2 block text-sm font-medium text-heading">
+                  Email
+                </label>
                 <input
-                  id="lastName"
-                  v-model="lastName"
-                  type="text"
-                  class="w-full px-4 py-3 border border-gray-600 bg-gray-700/50 text-white rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors placeholder-gray-500"
-                  placeholder="Your last name"
+                  id="email"
+                  v-model="email"
+                  type="email"
+                  required
+                  placeholder="you@example.com"
+                  class="w-full rounded-xl border border-edge bg-surface/70 px-4 py-3 text-heading placeholder-muted outline-none transition-all duration-300 focus:border-accent/60 focus:ring-2 focus:ring-accent/20"
                 />
               </div>
             </div>
 
             <div>
-              <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+              <label for="subject" class="mb-2 block text-sm font-medium text-heading">
+                Subject
+              </label>
               <input
-                id="email"
-                v-model="email"
-                type="email"
-                class="w-full px-4 py-3 border border-gray-600 bg-gray-700/50 text-white rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors placeholder-gray-500"
-                placeholder="your.email@example.com"
-                required
+                id="subject"
+                v-model="subject"
+                type="text"
+                placeholder="What is this about?"
+                class="w-full rounded-xl border border-edge bg-surface/70 px-4 py-3 text-heading placeholder-muted outline-none transition-all duration-300 focus:border-accent/60 focus:ring-2 focus:ring-accent/20"
               />
             </div>
 
             <div>
-              <label for="phone" class="block text-sm font-medium text-gray-300 mb-2">Phone (Optional)</label>
-              <input
-                id="phone"
-                v-model="phone"
-                type="tel"
-                class="w-full px-4 py-3 border border-gray-600 bg-gray-700/50 text-white rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors placeholder-gray-500"
-                placeholder="Your phone number"
-              />
-            </div>
-
-            <div>
-              <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+              <label for="message" class="mb-2 block text-sm font-medium text-heading">
+                Message
+              </label>
               <textarea
                 id="message"
                 v-model="message"
                 rows="5"
-                class="w-full px-4 py-3 border border-gray-600 bg-gray-700/50 text-white rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors resize-none placeholder-gray-500"
-                placeholder="Tell me about your project..."
                 required
+                placeholder="Tell me about your project..."
+                class="w-full resize-none rounded-xl border border-edge bg-surface/70 px-4 py-3 text-heading placeholder-muted outline-none transition-all duration-300 focus:border-accent/60 focus:ring-2 focus:ring-accent/20"
               ></textarea>
             </div>
 
             <button
               type="submit"
-              class="w-full bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-semibold py-3 px-6 rounded-lg hover:from-teal-400 hover:to-cyan-400 focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all duration-200 transform hover:scale-[1.02]"
+              class="btn-primary w-full"
+              :class="{ 'pointer-events-none opacity-70': status === 'sending' }"
             >
-              {{ submitted ? 'Message Sent! ✓' : 'Send Message' }}
+              <Icon
+                :icon="
+                  status === 'sent'
+                    ? 'ph:check-circle-bold'
+                    : status === 'sending'
+                      ? 'ph:circle-notch-bold'
+                      : 'ph:paper-plane-tilt-bold'
+                "
+                class="h-5 w-5"
+                :class="{ 'animate-spin': status === 'sending' }"
+              />
+              {{ buttonLabel }}
             </button>
           </form>
         </div>
