@@ -3,12 +3,12 @@ const services = [
   {
     icon: "ph:cpu-bold",
     title: "Backend Engineering",
-    text: "Scalable APIs, services and data layers with Node.js, NestJS and Express.",
+    text: "Scalable APIs, services and data layers with Node.js, NestJS and Express.js.",
   },
   {
     icon: "ph:layout-bold",
     title: "Frontend Development",
-    text: "Responsive, accessible interfaces with React and Next.js — styled with Tailwind CSS.",
+    text: "Responsive, accessible interfaces with React, Next.js, Vue 3 and Nuxt 3 — styled with Tailwind CSS.",
   },
   {
     icon: "ph:buildings-bold",
@@ -56,8 +56,8 @@ const services = [
                 <p><span class="text-purple-400">const</span> <span class="text-heading">developer</span> <span class="text-muted">=</span> <span class="text-muted">{</span></p>
                 <p class="pl-5"><span class="text-accent2">name</span><span class="text-muted">:</span> <span class="text-amber-500 dark:text-amber-300">'Muluken Demis'</span><span class="text-muted">,</span></p>
                 <p class="pl-5"><span class="text-accent2">role</span><span class="text-muted">:</span> <span class="text-amber-500 dark:text-amber-300">'Fullstack Developer'</span><span class="text-muted">,</span></p>
-                <p class="pl-5"><span class="text-accent2">backend</span><span class="text-muted">:</span> <span class="text-muted">[</span><span class="text-amber-500 dark:text-amber-300">'Node.js'</span><span class="text-muted">,</span> <span class="text-amber-500 dark:text-amber-300">'NestJS'</span><span class="text-muted">],</span></p>
-                <p class="pl-5"><span class="text-accent2">frontend</span><span class="text-muted">:</span> <span class="text-muted">[</span><span class="text-amber-500 dark:text-amber-300">'React'</span><span class="text-muted">,</span> <span class="text-amber-500 dark:text-amber-300">'Next.js'</span><span class="text-muted">],</span></p>
+                <p class="pl-5"><span class="text-accent2">backend</span><span class="text-muted">:</span> <span class="text-muted">[</span><span class="text-amber-500 dark:text-amber-300">'Node.js'</span><span class="text-muted">,</span> <span class="text-amber-500 dark:text-amber-300">'NestJS'</span><span class="text-muted">,</span> <span class="text-amber-500 dark:text-amber-300">'Express.js'</span><span class="text-muted">],</span></p>
+                <p class="pl-5"><span class="text-accent2">frontend</span><span class="text-muted">:</span> <span class="text-muted">[</span><span class="text-amber-500 dark:text-amber-300">'React'</span><span class="text-muted">,</span> <span class="text-amber-500 dark:text-amber-300">'Next.js'</span><span class="text-muted">,</span> <span class="text-amber-500 dark:text-amber-300">'Vue 3'</span><span class="text-muted">,</span> <span class="text-amber-500 dark:text-amber-300">'Nuxt 3'</span><span class="text-muted">],</span></p>
                 <p class="pl-5"><span class="text-accent2">erp</span><span class="text-muted">:</span> <span class="text-muted">[</span><span class="text-amber-500 dark:text-amber-300">'ERPNext'</span><span class="text-muted">,</span> <span class="text-amber-500 dark:text-amber-300">'Odoo'</span><span class="text-muted">],</span></p>
                 <p class="pl-5"><span class="text-accent2">hireable</span><span class="text-muted">:</span> <span class="text-purple-400">true</span><span class="text-muted">,</span></p>
                 <p class="pl-5"><span class="text-accent2">motto</span><span class="text-muted">:</span> <span class="text-amber-500 dark:text-amber-300">'Ship quality, not excuses'</span><span class="text-muted">,</span></p>
@@ -76,9 +76,11 @@ const services = [
               and data models to crafting the interfaces people use every day.
             </p>
             <p class="text-base leading-relaxed text-body sm:text-lg">
-              I work with <span class="text-accent">Node.js</span> and
-              <span class="text-accent">NestJS</span> on the backend, and
-              <span class="text-accent">React / Next.js</span> on the frontend. I also build and customize
+              I work with <span class="text-accent">Node.js</span>,
+              <span class="text-accent">NestJS</span> and
+              <span class="text-accent">Express.js</span> on the backend, and
+              <span class="text-accent">React / Next.js</span> and
+              <span class="text-accent">Vue 3 / Nuxt 3</span> on the frontend. I also build and customize
               <span class="text-accent">ERPNext</span> and <span class="text-accent">Odoo</span>
               systems that run real business operations.
             </p>

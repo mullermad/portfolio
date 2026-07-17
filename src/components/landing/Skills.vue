@@ -6,7 +6,7 @@ const skillGroups = [
     skills: [
       { name: "Node.js", icon: "logos:nodejs-icon" },
       { name: "NestJS", icon: "logos:nestjs" },
-      { name: "Express", icon: "simple-icons:express" },
+      { name: "Express.js", icon: "simple-icons:express" },
       { name: "REST APIs", icon: "ph:plugs-connected-bold" },
     ],
   },
@@ -16,6 +16,8 @@ const skillGroups = [
     skills: [
       { name: "React", icon: "logos:react" },
       { name: "Next.js", icon: "logos:nextjs-icon" },
+      { name: "Vue 3", icon: "logos:vue" },
+      { name: "Nuxt 3", icon: "logos:nuxt-icon" },
       { name: "JavaScript", icon: "logos:javascript" },
       { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" },
     ],

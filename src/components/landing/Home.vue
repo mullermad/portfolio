@@ -3,8 +3,8 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
 
 const roles = [
   "Fullstack Developer",
-  "Backend — Node.js · NestJS",
-  "Frontend — React · Next.js",
+  "Backend — Node.js · NestJS · Express.js",
+  "Frontend — React · Next.js · Vue 3 · Nuxt 3",
 ];
 
 const typedText = ref("");
@@ -41,7 +41,7 @@ const termLines = [
   { type: "cmd", text: "whoami" },
   { type: "out", text: "muluken-demis · fullstack developer" },
   { type: "cmd", text: "cat focus.txt" },
-  { type: "out", text: "Node.js · NestJS · React · Next.js" },
+  { type: "out", text: "Node.js · NestJS · Express · React · Next.js · Vue · Nuxt" },
   { type: "cmd", text: "ls skills/" },
   { type: "out", text: "backend/   frontend/   erp/   devops/" },
   { type: "cmd", text: "ls skills/erp" },
@@ -144,12 +144,13 @@ function downloadCv() {
           >
             As a <span class="font-semibold text-accent">fullstack developer</span>,
             I architect and ship robust APIs, services and data layers with
-            <span class="font-semibold text-accent">Node.js</span> and
-            <span class="font-semibold text-accent">NestJS</span>, and pair them with
+            <span class="font-semibold text-accent">Node.js</span>,
+            <span class="font-semibold text-accent">NestJS</span> and
+            <span class="font-semibold text-accent">Express.js</span>, and pair them with
             polished frontends in
-            <span class="font-semibold text-accent">React</span> and
-            <span class="font-semibold text-accent">Next.js</span>. I also build and customize
-            ERPNext & Odoo business systems.
+            <span class="font-semibold text-accent">React / Next.js</span> and
+            <span class="font-semibold text-accent">Vue 3 / Nuxt 3</span>. I also build and
+            customize ERPNext & Odoo business systems.
           </p>
 
           <!-- CTAs -->

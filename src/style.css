@@ -139,7 +139,7 @@ section[id] {
   }
 
   .section-title {
-    @apply font-display text-3xl font-bold text-heading sm:text-4xl md:text-5xl;
+    @apply font-display text-3xl font-bold text-heading sm:text-4xl;
   }
 }
 
