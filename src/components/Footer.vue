@@ -23,12 +23,7 @@ const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
     <div class="container-page py-12">
       <div class="flex flex-col items-center gap-8 md:flex-row md:justify-between">
         <!-- Brand -->
-        <a href="#home" class="flex items-center gap-2.5">
-          <span
-            class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500 to-cyan-500 font-display text-lg font-bold text-white shadow-lg shadow-teal-500/25"
-          >
-            M
-          </span>
+        <a href="#home" class="flex items-center">
           <span class="font-display text-lg font-bold text-heading">
             Muluken<span class="text-accent">.</span>
           </span>
