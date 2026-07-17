@@ -74,12 +74,7 @@ onBeforeUnmount(() => {
 
     <nav class="container-page flex h-16 items-center justify-between">
       <!-- Brand -->
-      <a href="#home" class="group flex items-center gap-2.5" @click="mobileOpen = false">
-        <span
-          class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500 to-cyan-500 font-display text-lg font-bold text-white shadow-lg shadow-teal-500/25 transition-transform duration-300 group-hover:rotate-6"
-        >
-          M
-        </span>
+      <a href="#home" class="group flex items-center" @click="mobileOpen = false">
         <span class="font-display text-lg font-bold text-heading">
           Muluken<span class="text-accent">.</span>
         </span>

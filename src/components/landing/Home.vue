@@ -2,11 +2,9 @@
 import { ref, onMounted, onBeforeUnmount } from "vue";
 
 const roles = [
-  "Backend Engineer — Node.js · NestJS · Go",
   "Fullstack Developer",
-  "Python & Django REST Developer",
-  "React / Next.js · Vue / Nuxt",
-  "ERPNext & Odoo Developer",
+  "Backend — Node.js · NestJS",
+  "Frontend — React · Next.js",
 ];
 
 const typedText = ref("");
@@ -43,7 +41,7 @@ const termLines = [
   { type: "cmd", text: "whoami" },
   { type: "out", text: "muluken-demis · fullstack developer" },
   { type: "cmd", text: "cat focus.txt" },
-  { type: "out", text: "Backend Engineering — NestJS · Node.js · Go · Python" },
+  { type: "out", text: "Node.js · NestJS · React · Next.js" },
   { type: "cmd", text: "ls skills/" },
   { type: "out", text: "backend/   frontend/   erp/   devops/" },
   { type: "cmd", text: "ls skills/erp" },
@@ -91,22 +89,6 @@ const socials = [
   { icon: "mdi:telegram", href: "https://t.me/AmDeMu", label: "Telegram" },
 ];
 
-const marqueeTech = [
-  { name: "Node.js", icon: "logos:nodejs-icon" },
-  { name: "NestJS", icon: "logos:nestjs" },
-  { name: "Go", icon: "logos:go" },
-  { name: "Python", icon: "logos:python" },
-  { name: "Django", icon: "logos:django-icon" },
-  { name: "PostgreSQL", icon: "logos:postgresql" },
-  { name: "React", icon: "logos:react" },
-  { name: "Next.js", icon: "logos:nextjs-icon" },
-  { name: "Vue.js", icon: "logos:vue" },
-  { name: "Nuxt", icon: "logos:nuxt-icon" },
-  { name: "Odoo", icon: "simple-icons:odoo" },
-  { name: "Frappe / ERPNext", icon: "simple-icons:frappe" },
-  { name: "Docker", icon: "logos:docker-icon" },
-];
-
 function downloadCv() {
   window.open("/cv/Muluken_Demis_Resume (5) - Copy.pdf", "_blank");
 }
@@ -144,7 +126,7 @@ function downloadCv() {
 
           <h1
             v-reveal="100"
-            class="font-display text-4xl font-extrabold leading-tight text-heading sm:text-5xl md:text-6xl"
+            class="font-display text-2xl font-bold leading-tight text-heading sm:text-3xl"
           >
             Hi, I'm <span class="text-gradient-animated">Muluken Demis</span>
           </h1>
@@ -160,14 +142,14 @@ function downloadCv() {
             v-reveal="300"
             class="mx-auto max-w-xl text-base leading-relaxed text-body sm:text-lg lg:mx-0"
           >
-            Fullstack developer with a <span class="font-semibold text-accent">backend-first mindset</span> —
+            As a <span class="font-semibold text-accent">fullstack developer</span>,
             I architect and ship robust APIs, services and data layers with
-            <span class="font-semibold text-accent">NestJS</span>,
-            <span class="font-semibold text-accent">Node.js</span>,
-            <span class="font-semibold text-accent">Go</span> and
-            <span class="font-semibold text-accent">Python</span>, and pair them with
-            polished frontends in React, Next.js, Vue and Nuxt. I also build and customize
-            <span class="font-semibold text-accent">ERPNext & Odoo</span> business systems.
+            <span class="font-semibold text-accent">Node.js</span> and
+            <span class="font-semibold text-accent">NestJS</span>, and pair them with
+            polished frontends in
+            <span class="font-semibold text-accent">React</span> and
+            <span class="font-semibold text-accent">Next.js</span>. I also build and customize
+            ERPNext & Odoo business systems.
           </p>
 
           <!-- CTAs -->
@@ -272,21 +254,6 @@ function downloadCv() {
       </div>
     </div>
 
-    <!-- Tech marquee -->
-    <div class="relative border-t border-edge/60 bg-surface/40 py-6 backdrop-blur-sm">
-      <div class="marquee">
-        <div class="marquee-track">
-          <div
-            v-for="(tech, i) in [...marqueeTech, ...marqueeTech]"
-            :key="`${tech.name}-${i}`"
-            class="flex items-center gap-2.5 whitespace-nowrap"
-          >
-            <Icon :icon="tech.icon" class="h-6 w-6" />
-            <span class="text-sm font-semibold text-muted">{{ tech.name }}</span>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 

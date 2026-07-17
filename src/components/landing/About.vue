@@ -3,12 +3,12 @@ const services = [
   {
     icon: "ph:cpu-bold",
     title: "Backend Engineering",
-    text: "Scalable APIs, microservices and data layers with NestJS, Node.js / Express, Go and Python (Django REST Framework).",
+    text: "Scalable APIs, services and data layers with Node.js, NestJS and Express.",
   },
   {
     icon: "ph:layout-bold",
     title: "Frontend Development",
-    text: "Responsive, accessible interfaces with React, Next.js, Vue and Nuxt — styled with Tailwind CSS.",
+    text: "Responsive, accessible interfaces with React and Next.js — styled with Tailwind CSS.",
   },
   {
     icon: "ph:buildings-bold",
@@ -24,8 +24,7 @@ const services = [
 
     <div class="container-page relative">
       <!-- Header -->
-      <div class="relative mb-20 text-center" v-reveal>
-        <span class="ghost-word" aria-hidden="true">ABOUT</span>
+      <div class="relative mb-12 text-center" v-reveal>
         <span class="section-kicker">
           <Icon icon="ph:user-bold" class="h-3.5 w-3.5" />
           About Me
@@ -57,8 +56,8 @@ const services = [
                 <p><span class="text-purple-400">const</span> <span class="text-heading">developer</span> <span class="text-muted">=</span> <span class="text-muted">{</span></p>
                 <p class="pl-5"><span class="text-accent2">name</span><span class="text-muted">:</span> <span class="text-amber-500 dark:text-amber-300">'Muluken Demis'</span><span class="text-muted">,</span></p>
                 <p class="pl-5"><span class="text-accent2">role</span><span class="text-muted">:</span> <span class="text-amber-500 dark:text-amber-300">'Fullstack Developer'</span><span class="text-muted">,</span></p>
-                <p class="pl-5"><span class="text-accent2">backend</span><span class="text-muted">:</span> <span class="text-muted">[</span><span class="text-amber-500 dark:text-amber-300">'NestJS'</span><span class="text-muted">,</span> <span class="text-amber-500 dark:text-amber-300">'Node.js'</span><span class="text-muted">,</span> <span class="text-amber-500 dark:text-amber-300">'Go'</span><span class="text-muted">,</span> <span class="text-amber-500 dark:text-amber-300">'Python'</span><span class="text-muted">],</span></p>
-                <p class="pl-5"><span class="text-accent2">frontend</span><span class="text-muted">:</span> <span class="text-muted">[</span><span class="text-amber-500 dark:text-amber-300">'React'</span><span class="text-muted">,</span> <span class="text-amber-500 dark:text-amber-300">'Next.js'</span><span class="text-muted">,</span> <span class="text-amber-500 dark:text-amber-300">'Vue'</span><span class="text-muted">,</span> <span class="text-amber-500 dark:text-amber-300">'Nuxt'</span><span class="text-muted">],</span></p>
+                <p class="pl-5"><span class="text-accent2">backend</span><span class="text-muted">:</span> <span class="text-muted">[</span><span class="text-amber-500 dark:text-amber-300">'Node.js'</span><span class="text-muted">,</span> <span class="text-amber-500 dark:text-amber-300">'NestJS'</span><span class="text-muted">],</span></p>
+                <p class="pl-5"><span class="text-accent2">frontend</span><span class="text-muted">:</span> <span class="text-muted">[</span><span class="text-amber-500 dark:text-amber-300">'React'</span><span class="text-muted">,</span> <span class="text-amber-500 dark:text-amber-300">'Next.js'</span><span class="text-muted">],</span></p>
                 <p class="pl-5"><span class="text-accent2">erp</span><span class="text-muted">:</span> <span class="text-muted">[</span><span class="text-amber-500 dark:text-amber-300">'ERPNext'</span><span class="text-muted">,</span> <span class="text-amber-500 dark:text-amber-300">'Odoo'</span><span class="text-muted">],</span></p>
                 <p class="pl-5"><span class="text-accent2">hireable</span><span class="text-muted">:</span> <span class="text-purple-400">true</span><span class="text-muted">,</span></p>
                 <p class="pl-5"><span class="text-accent2">motto</span><span class="text-muted">:</span> <span class="text-amber-500 dark:text-amber-300">'Ship quality, not excuses'</span><span class="text-muted">,</span></p>
@@ -77,10 +76,9 @@ const services = [
               and data models to crafting the interfaces people use every day.
             </p>
             <p class="text-base leading-relaxed text-body sm:text-lg">
-              I work with <span class="text-accent">NestJS</span>, <span class="text-accent">Node.js</span>,
-              <span class="text-accent">Go</span> and <span class="text-accent">Python</span> on the backend,
-              and <span class="text-accent">React / Next.js</span> and
-              <span class="text-accent">Vue / Nuxt</span> on the frontend. I also build and customize
+              I work with <span class="text-accent">Node.js</span> and
+              <span class="text-accent">NestJS</span> on the backend, and
+              <span class="text-accent">React / Next.js</span> on the frontend. I also build and customize
               <span class="text-accent">ERPNext</span> and <span class="text-accent">Odoo</span>
               systems that run real business operations.
             </p>

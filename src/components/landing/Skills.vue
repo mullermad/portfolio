@@ -7,9 +7,7 @@ const skillGroups = [
       { name: "Node.js", icon: "logos:nodejs-icon" },
       { name: "NestJS", icon: "logos:nestjs" },
       { name: "Express", icon: "simple-icons:express" },
-      { name: "Go (Golang)", icon: "logos:go" },
-      { name: "Python", icon: "logos:python" },
-      { name: "Django REST", icon: "logos:django-icon" },
+      { name: "REST APIs", icon: "ph:plugs-connected-bold" },
     ],
   },
   {
@@ -18,8 +16,6 @@ const skillGroups = [
     skills: [
       { name: "React", icon: "logos:react" },
       { name: "Next.js", icon: "logos:nextjs-icon" },
-      { name: "Vue.js", icon: "logos:vue" },
-      { name: "Nuxt 3", icon: "logos:nuxt-icon" },
       { name: "JavaScript", icon: "logos:javascript" },
       { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" },
     ],
@@ -64,8 +60,7 @@ const strengths = [
 
     <div class="container-page relative">
       <!-- Header -->
-      <div class="relative mb-20 text-center" v-reveal>
-        <span class="ghost-word" aria-hidden="true">SKILLS</span>
+      <div class="relative mb-12 text-center" v-reveal>
         <span class="section-kicker">
           <Icon icon="ph:lightning-bold" class="h-3.5 w-3.5" />
           My Skills

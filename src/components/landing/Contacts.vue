@@ -102,8 +102,7 @@ const submitForm = async () => {
 
     <div class="container-page relative">
       <!-- Header -->
-      <div class="relative mb-20 text-center" v-reveal>
-        <span class="ghost-word" aria-hidden="true">CONTACT</span>
+      <div class="relative mb-12 text-center" v-reveal>
         <span class="section-kicker">
           <Icon icon="ph:paper-plane-tilt-bold" class="h-3.5 w-3.5" />
           Contact

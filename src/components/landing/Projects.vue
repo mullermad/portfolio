@@ -14,7 +14,6 @@ const projects = [
     description:
       "A structured platform connecting mentors and mentees to support career and personal growth through guided mentorship programs.",
     image: internMentorship,
-    link: "https://mentorship-sooty.vercel.app/",
     github: "https://github.com/mullermad",
   },
   {
@@ -23,7 +22,6 @@ const projects = [
     description:
       "A digital version of the traditional Ethiopian Equb — members manage rotating savings and lending securely and transparently online.",
     image: equb,
-    link: "https://github.com/mullermad",
     github: "https://github.com/mullermad",
   },
   {
@@ -32,7 +30,6 @@ const projects = [
     description:
       "A modern, elegant restaurant website showcasing menu items, reservations and events with a smooth, fully responsive design.",
     image: nuRestaurant,
-    link: "https://www.nu-restaurant.com/",
   },
   {
     id: 4,
@@ -40,7 +37,6 @@ const projects = [
     description:
       "A comprehensive restaurant management system with waiter ordering, kitchen display and inventory tracking to boost efficiency.",
     image: restaurantPos,
-    link: "https://pos.nu-restaurant.com/",
   },
   {
     id: 5,
@@ -48,7 +44,6 @@ const projects = [
     description:
       "A cinema booking app for browsing movies, checking schedules and purchasing tickets online — inspired by platforms like Fandango.",
     image: cinema,
-    link: "https://cinema-app-liart.vercel.app/",
     github: "https://github.com/mullermad",
   },
 ];
@@ -60,8 +55,7 @@ const projects = [
 
     <div class="container-page relative">
       <!-- Header -->
-      <div class="relative mb-20 text-center" v-reveal>
-        <span class="ghost-word" aria-hidden="true">WORK</span>
+      <div class="relative mb-12 text-center" v-reveal>
         <span class="section-kicker">
           <Icon icon="ph:briefcase-bold" class="h-3.5 w-3.5" />
           Portfolio
@@ -70,8 +64,7 @@ const projects = [
           Featured <span class="text-gradient">Projects</span>
         </h2>
         <p class="mx-auto mt-4 max-w-2xl text-body sm:text-lg">
-          A selection of products I've designed and built — hover a card to open the
-          live demo or the source code.
+          A selection of products I've designed and built.
         </p>
       </div>
 

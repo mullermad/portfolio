@@ -123,7 +123,7 @@ section[id] {
   }
 
   .section-pad {
-    @apply py-28 md:py-40;
+    @apply py-14 md:py-20;
   }
 
   .btn-primary {
@@ -224,24 +224,6 @@ section[id] {
     rgb(var(--c-accent) / 0.09),
     transparent 65%
   );
-}
-
-/* ---------- Ghost word behind section titles ---------- */
-.ghost-word {
-  position: absolute;
-  inset-inline: 0;
-  top: -1.5rem;
-  pointer-events: none;
-  user-select: none;
-  text-align: center;
-  font-family: "Sora", sans-serif;
-  font-weight: 800;
-  line-height: 1;
-  font-size: clamp(4rem, 14vw, 11rem);
-  letter-spacing: 0.05em;
-  color: rgb(var(--c-heading) / 0.04);
-  white-space: nowrap;
-  overflow: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
